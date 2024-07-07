@@ -1,6 +1,28 @@
 {% extends "base.html" %}
-{% load static %}
+
+{% block title %}Home - Art Store{% endblock %}
 
 {% block content %}
-    <h1 class="display-4 text-success">It works!</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Our Art Collection</h1>
+            <p>Browse through our extensive collection of paintings and find the perfect piece for your space.</p>
+        </div>
+    </div>
+    <div class="row">
+        {% for painting in paintings %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ painting.title }}</h5>
+                        <p class="card-text">{{ painting.description }}</p>
+                        <p class="card-text"><strong>Price:</strong> ${{ painting.price }}</p>
+                        <a href="#" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

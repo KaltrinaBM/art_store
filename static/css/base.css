@@ -1,0 +1,101 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Navbar Styles */
+.navbar {
+    margin-bottom: 20px;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-link {
+    font-size: 1rem;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+/* Dropdown Styles */
+.dropdown-menu {
+    background-color: #f8f9fa;
+    border: none;
+}
+
+.dropdown-item {
+    padding: 10px 20px;
+}
+
+.dropdown-item:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Shopping Bag Styles */
+.nav-link .text-center {
+    text-align: center;
+}
+
+.nav-link .fa-shopping-bag {
+    margin-bottom: 5px;
+}
+
+.nav-link .my-0 {
+    font-size: 0.9rem;
+}
+
+/* Home Page Styles */
+.container.h-100 {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.logo-font {
+    font-family: 'Georgia', serif;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.explore-art-button {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.explore-art-button:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e4e4e4;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer .text-muted {
+    color: #6c757d;
+}

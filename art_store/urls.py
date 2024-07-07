@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from home import views as home_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
-    path('', include('home.urls')),
+    path('', home_views.painting_list, name='painting_list'),  # Home page
+    path('accounts/', include('allauth.urls')),  # Django Allauth URLs for user authentication
 ]
