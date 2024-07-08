@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from home import views as home_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_views.painting_list, name='painting_list'),  # Home page
     path('accounts/', include('allauth.urls')),  # Django Allauth URLs for user authentication
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
