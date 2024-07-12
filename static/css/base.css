@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 a {
@@ -144,3 +144,28 @@ a:hover {
           padding-top: 164px;
       }
   }
+
+  /* Base styles */
+
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Ensure hero section and cards are responsive */
+.jumbotron {
+    padding: 2rem 1rem;
+}
+
+.card-body {
+    text-align: center;
+}
+
+
+
+
+@media (max-width: 576px) {
+    .card-body {
+        text-align: left; 
+}
