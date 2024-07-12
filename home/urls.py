@@ -1,8 +1,7 @@
-from django.contrib import admin
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='home'),
-
+    path('', views.painting_list, name='painting_list'),
+    path('all-paintings/', views.all_paintings, name='all_paintings'),
 ]
