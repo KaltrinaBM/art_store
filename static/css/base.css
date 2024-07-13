@@ -164,8 +164,10 @@ a:hover {
 
 
 
+
+
 @media (max-width: 576px) {
     .card-body {
         text-align: left; 
-}
+    }
 }
