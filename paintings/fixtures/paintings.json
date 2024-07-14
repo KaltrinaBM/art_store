@@ -1,0 +1,53 @@
+[
+    {
+        "model": "paintings.painting",
+        "pk": 1,
+        "fields": {
+            "title": "Abstract Innocence",
+            "description": "A vibrant exploration of youth, captured in a playful blend of colors and shapes. This abstract portrait invites the viewer to discover the hidden depths within.",
+            "price": 1000.0,
+            "image": "abstract.jpg"
+        }
+    },
+    {
+        "model": "paintings.painting",
+        "pk": 2,
+        "fields": {
+            "title": "Animal Adventure",
+            "description": "Bring the wild world to life with this enchanting mural! Featuring a colorful cast of animal characters, it's perfect for sparking imagination and creativity in any child's room.",
+            "price": 1200.0,
+            "image": "animals.jpg"
+        }
+    },
+    {
+        "model": "paintings.painting",
+        "pk": 3,
+        "fields": {
+            "title": "Avocado Dream",
+            "description": "A fresh and vibrant ode to this superfood. This artwork captures the essence of the avocado in a visually appealing and contemporary style.",
+            "price": 1200.0,
+            "image": "avocado.jpg"
+        }
+    },
+    {
+        "model": "paintings.painting",
+        "pk": 4,
+        "fields": {
+            "title": "Mandala Maiden",
+            "description": "A serene and enchanting piece featuring a young girl surrounded by colorful mandalas and balloons. This artwork evokes a sense of joy, wonder, and inner peace.",
+            "price": 1200.0,
+            "image": "balloons.jpg"
+        }
+    },
+    {
+        "model": "paintings.painting",
+        "pk": 5,
+        "fields": {
+            "title": "Man in Circles",
+            "description": "A modern and minimalist portrait created using a captivating circle technique. This artwork explores the interplay of form and expression in a unique and thought-provoking way.",
+            "price": 1200.0,
+            "image": "bob.jpg"
+        }
+    }
+    
+]
