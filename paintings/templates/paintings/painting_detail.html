@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ painting.title }}</h1>
+    <img src="{{ painting.image.url }}" alt="{{ painting.title }}">
+    <p>{{ painting.description }}</p>
+    <p><strong>Price:</strong> ${{ painting.price }}</p>
+</div>
+{% endblock %}

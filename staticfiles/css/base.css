@@ -1,0 +1,173 @@
+/* General Styles */
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Navbar Styles */
+.navbar {
+    margin-bottom: 20px;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-link {
+    font-size: 1rem;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+/* Dropdown Styles */
+.dropdown-menu {
+    background-color: #f8f9fa;
+    border: none;
+}
+
+.dropdown-item {
+    padding: 10px 20px;
+}
+
+.dropdown-item:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Shopping Bag Styles */
+.nav-link .text-center {
+    text-align: center;
+}
+
+.nav-link .fa-shopping-bag {
+    margin-bottom: 5px;
+}
+
+.nav-link .my-0 {
+    font-size: 0.9rem;
+}
+
+/* Home Page Styles */
+.container.h-100 {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.logo-font {
+    font-family: 'Georgia', serif;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.explore-art-button {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.explore-art-button:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e4e4e4;
+    padding: 20px 0;
+    text-align: center;
+}
+
+
+.footer .text-muted {
+    color: #6c757d;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.page-link {
+    color: #007bff;
+}
+
+.page-link:hover {
+    color: #0056b3;
+    text-decoration: none;
+    background-color: #e9ecef;
+}
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+      max-width: 80%;
+    }
+  }
+  
+  /* fixed top navbar only on medium and up */
+  @media (min-width: 992px) {
+      .fixed-top-desktop-only {
+          position: fixed;
+          top: 0;
+          right: 0;
+          left: 0;
+          z-index: 1030;
+      }
+  
+      .header-container {
+          padding-top: 164px;
+      }
+  }
+
+  /* Base styles */
+
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Ensure hero section and cards are responsive */
+.jumbotron {
+    padding: 2rem 1rem;
+}
+
+.card-body {
+    text-align: center;
+}
+
+
+
+
+
+@media (max-width: 576px) {
+    .card-body {
+        text-align: left; 
+    }
+}
