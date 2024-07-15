@@ -76,7 +76,7 @@
             "title": "Revolutionary Spirit",
             "description": "A timeless and powerful portrait of Che Guevara, rendered in classic black and white. This piece captures the essence of a revolutionary leader and inspires contemplation.",
             "price": 1300.0,
-            "image": "che-guevara.jpg"
+            "image": "che_guevara.jpg"
         }
     },
     {
@@ -96,7 +96,7 @@
             "title": "Woman of Words",
             "description": "A vibrant and expressive portrait of a woman adorned with colorful letters. This piece celebrates individuality and the power of language.",
             "price": 1000.0,
-            "image": "color-letters.jpg"
+            "image": "color_letters.jpg"
         }
     },
     {
@@ -146,7 +146,7 @@
             "title": "Nature's Muse",
             "description": "A surreal and captivating mural depicting a woman with a vibrant crown of fruits. This artwork blends feminine beauty with natural elements for a striking visual impact.",
             "price": 3000.0,
-            "image": "girl-fruits.jpg"
+            "image": "girl_fruits.jpg"
         }
     },
     {
@@ -176,7 +176,7 @@
             "title": "Tree of Two Worlds",
             "description": "A visually striking piece featuring a red and silver tree split across two frames. This artwork creates a sense of duality and intrigue.",
             "price": 1200.0,
-            "image": "half-tree.jpg"
+            "image": "half_tree.jpg"
         }
     },
     {
@@ -276,7 +276,7 @@
             "title": "Growing Together",
             "description": "A heartwarming mural showcasing children's photos displayed in frames hanging from a tree, symbolizing growth, childhood, and the enduring nature of memories.",
             "price": 2200.0,
-            "image": "tree-kids.jpg"
+            "image": "tree_kids.jpg"
         }
     },
     {
