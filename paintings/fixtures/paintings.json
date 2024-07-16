@@ -6,7 +6,8 @@
             "title": "Abstract Innocence",
             "description": "A vibrant exploration of youth, captured in a playful blend of colors and shapes. This abstract portrait invites the viewer to discover the hidden depths within.",
             "price": 1000.0,
-            "image": "abstract.jpg"
+            "image": "abstract.jpg",
+            "sku": "SKU1"
         }
     },
     {
@@ -16,7 +17,8 @@
             "title": "Animal Adventure",
             "description": "Bring the wild world to life with this enchanting mural! Featuring a colorful cast of animal characters, it's perfect for sparking imagination and creativity in any child's room.",
             "price": 1200.0,
-            "image": "animals.jpg"
+            "image": "animals.jpg",
+            "sku": "SKU2"
         }
     },
     {
@@ -26,7 +28,8 @@
             "title": "Avocado Dream",
             "description": "A fresh and vibrant ode to this superfood. This artwork captures the essence of the avocado in a visually appealing and contemporary style.",
             "price": 1200.0,
-            "image": "avocado.jpg"
+            "image": "avocado.jpg",
+            "sku": "SKU3"
         }
     },
     {
@@ -36,7 +39,8 @@
             "title": "Mandala Maiden",
             "description": "A serene and enchanting piece featuring a young girl surrounded by colorful mandalas and balloons. This artwork evokes a sense of joy, wonder, and inner peace.",
             "price": 2200.0,
-            "image": "balloons.jpg"
+            "image": "balloons.jpg",
+            "sku": "SKU4"
         }
     },
     {
@@ -46,7 +50,8 @@
             "title": "Man in Circles",
             "description": "A modern and minimalist portrait created using a captivating circle technique. This artwork explores the interplay of form and expression in a unique and thought-provoking way.",
             "price": 1200.0,
-            "image": "bob.jpg"
+            "image": "bob.jpg",
+            "sku": "SKU5"
         }
     },
     {
@@ -56,7 +61,8 @@
             "title": "Flutter and Bloom",
             "description": "A vibrant tapestry of mandala flowers and a graceful butterfly, inviting you into a world of tranquility and beauty. Perfect for creating a serene atmosphere in any space.",
             "price": 2000.0,
-            "image": "butterfly.jpg"
+            "image": "butterfly.jpg",
+            "sku": "SKU6"
         }
     },
     {
@@ -66,7 +72,8 @@
             "title": "Purrfectly Pretty",
             "description": "A playful and whimsical portrayal of a cat adorned with a stunning bouquet of colorful flowers. This unique piece is sure to bring a smile to your face.",
             "price": 1500.0,
-            "image": "cat.jpg"
+            "image": "cat.jpg",
+            "sku": "SKU7"
         }
     },
     {
@@ -76,7 +83,8 @@
             "title": "Revolutionary Spirit",
             "description": "A timeless and powerful portrait of Che Guevara, rendered in classic black and white. This piece captures the essence of a revolutionary leader and inspires contemplation.",
             "price": 1300.0,
-            "image": "che_guevara.jpg"
+            "image": "che_guevara.jpg",
+            "sku": "SKU8"
         }
     },
     {
@@ -86,7 +94,8 @@
             "title": "Iconic in Dots",
             "description": "A fresh and contemporary take on the legendary Marilyn Monroe, using a captivating circle technique. This artwork blends classic beauty with modern art for a striking effect.",
             "price": 1100.0,
-            "image": "circles.jpg"
+            "image": "circles.jpg",
+            "sku": "SKU9"
         }
     },
     {
@@ -96,7 +105,8 @@
             "title": "Woman of Words",
             "description": "A vibrant and expressive portrait of a woman adorned with colorful letters. This piece celebrates individuality and the power of language.",
             "price": 1000.0,
-            "image": "color_letters.jpg"
+            "image": "color_letters.jpg",
+            "sku": "SKU10"
         }
     },
     {
@@ -106,7 +116,8 @@
             "title": "Waddle and Play",
             "description": "A playful and colorful mural featuring adorable ducks, perfect for sparking imagination and joy in any child's room.",
             "price": 2000.0,
-            "image": "duck.jpg"
+            "image": "duck.jpg",
+            "sku": "SKU11"
         }
     },
     {
@@ -116,7 +127,8 @@
             "title": "Window to the Soul",
             "description": "A mesmerizing exploration of the human eye, captured in vivid detail. This live art piece invites viewers to connect on a deeper level.",
             "price": 1800.0,
-            "image": "eye.jpg"
+            "image": "eye.jpg",
+            "sku": "SKU12"
         }
     },
     {
@@ -126,7 +138,8 @@
             "title": "Pen and Petal",
             "description": "A delicate and intricate floral composition created with meticulous pen strokes. This artwork celebrates the beauty of nature in a unique and contemporary style.",
             "price": 1400.0,
-            "image": "flower.jpg"
+            "image": "flower.jpg",
+            "sku": "SKU13"
         }
     },
     {
@@ -136,7 +149,8 @@
             "title": "Fruitful Bounty",
             "description": "A still life showcasing a colorful and tempting array of fresh fruits. This artwork evokes a sense of abundance and vitality.",
             "price": 1600.0,
-            "image": "fruits.jpg"
+            "image": "fruits.jpg",
+            "sku": "SKU14"
         }
     },
     {
@@ -146,7 +160,8 @@
             "title": "Nature's Muse",
             "description": "A surreal and captivating mural depicting a woman with a vibrant crown of fruits. This artwork blends feminine beauty with natural elements for a striking visual impact.",
             "price": 3000.0,
-            "image": "girl_fruits.jpg"
+            "image": "girl_fruits.jpg",
+            "sku": "SKU15"
         }
     },
     {
@@ -156,7 +171,8 @@
             "title": "Abstract Elegance",
             "description": "A contemporary exploration of femininity, featuring a woman defined by bold shapes and colors, accented by the intriguing detail of glasses.",
             "price": 1000.0,
-            "image": "glasses.jpg"
+            "image": "glasses.jpg",
+            "sku": "SKU16"
         }
     },
     {
@@ -166,7 +182,8 @@
             "title": "Tactician in Tones",
             "description": "A classic portrait of the football mastermind, Pep Guardiola, rendered in stark black and white for a timeless and powerful image.",
             "price": 1600.0,
-            "image": "guardiola.jpg"
+            "image": "guardiola.jpg",
+            "sku": "SKU17"
         }
     },
     {
@@ -176,7 +193,8 @@
             "title": "Tree of Two Worlds",
             "description": "A visually striking piece featuring a red and silver tree split across two frames. This artwork creates a sense of duality and intrigue.",
             "price": 1200.0,
-            "image": "half_tree.jpg"
+            "image": "half_tree.jpg",
+            "sku": "SKU18"
         }
     },
     {
@@ -186,7 +204,8 @@
             "title": "Sunset Serenade",
             "description": "A dreamlike scene of a woman playing a harp, surrounded by intricate mandala patterns against a vibrant sunset backdrop. This artwork evokes a sense of peace and tranquility.",
             "price": 1800.0,
-            "image": "harp.jpg"
+            "image": "harp.jpg",
+            "sku": "SKU19"
         }
     },
     {
@@ -196,7 +215,8 @@
             "title": "Geometric Abode",
             "description": "A playful and imaginative depiction of a house constructed entirely from colorful ruler lines. This artwork brings a touch of whimsy to any space.",
             "price": 1000.0,
-            "image": "house.jpg"
+            "image": "house.jpg",
+            "sku": "SKU20"
         }
     },
     {
@@ -206,7 +226,8 @@
             "title": "City of Childhood",
             "description": "A nostalgic and heartwarming mural depicting children as protectors of cherished memories, represented by photographs in frames placed over a vibrant cityscape.",
             "price": 2500.0,
-            "image": "kids.jpg"
+            "image": "kids.jpg",
+            "sku": "SKU21"
         }
     },
     {
@@ -216,7 +237,8 @@
             "title": "Lakeside Serenity",
             "description": "A peaceful and serene still life capturing the beauty of a still lake, inviting the viewer to escape into nature's tranquility.",
             "price": 1200.0,
-            "image": "lake.jpg"
+            "image": "lake.jpg",
+            "sku": "SKU22"
         }
     },
     {
@@ -226,7 +248,8 @@
             "title": "Silent Conversation",
             "description": "A striking and thought-provoking portrait of a woman composed entirely of letters, creating a visual and conceptual interplay between language and identity.",
             "price": 1300.0,
-            "image": "letters.jpg"
+            "image": "letters.jpg",
+            "sku": "SKU23"
         }
     },
     {
@@ -236,7 +259,8 @@
             "title": "Global Tapestry",
             "description": "A vibrant and intricate world map transformed into a stunning mandala, celebrating the interconnectedness and diversity of our planet.",
             "price": 1900.0,
-            "image": "map.jpg"
+            "image": "map.jpg",
+            "sku": "SKU24"
         }
     },
     {
@@ -246,7 +270,8 @@
             "title": "Doorway to Adventure",
             "description": "A playful and whimsical mural depicting a cat and mice engaged in a dynamic chase, adding a touch of fun and excitement to any doorway.",
             "price": 2000.0,
-            "image": "mouse.jpg"
+            "image": "mouse.jpg",
+            "sku": "SKU25"
         }
     },
     {
@@ -256,7 +281,8 @@
             "title": "Sole Searching",
             "description": "A captivating still life exploring the form, texture, and character of shoes, inviting a closer look at often overlooked objects.",
             "price": 1600.0,
-            "image": "shoes.jpg"
+            "image": "shoes.jpg",
+            "sku": "SKU26"
         }
     },
     {
@@ -266,7 +292,8 @@
             "title": "One Love in Color",
             "description": "A striking portrait of Bob Marley in classic black and white, with a burst of color highlighting the iconic smoking pose, capturing the essence of the legendary musician.",
             "price": 1900.0,
-            "image": "smoking.jpg"
+            "image": "smoking.jpg",
+            "sku": "SKU27"
         }
     },
     {
@@ -276,7 +303,8 @@
             "title": "Growing Together",
             "description": "A heartwarming mural showcasing children's photos displayed in frames hanging from a tree, symbolizing growth, childhood, and the enduring nature of memories.",
             "price": 2200.0,
-            "image": "tree_kids.jpg"
+            "image": "tree_kids.jpg",
+            "sku": "SKU28"
         }
     },
     {
@@ -286,7 +314,8 @@
             "title": "Doodle Delight",
             "description": "A playful and imaginative exploration of nature, featuring a tree adorned with a vibrant array of doodles, inviting the viewer to discover hidden details and let their imagination run wild.",
             "price": 1000.0,
-            "image": "tree.jpg"
+            "image": "tree.jpg",
+            "sku": "SKU29"
         }
     },
     {
@@ -297,6 +326,8 @@
             "description": "A stunning and empowering mural depicting a Black woman surrounded by a colorful bouquet of flowers and delicate butterflies, celebrating beauty, diversity, and harmony with nature.",
             "price": 4000.0,
             "image": "woman.jpg"
+            ,
+            "sku": "SKU30"
         }
     }
     
