@@ -1,42 +1,24 @@
 {% extends "base.html" %}
 
-{% block title %}All Paintings - Art Store{% endblock %}
-
 {% block content %}
 <div class="container">
-    <div class="row">
-        <div class="col-12 text-center">
-            <h1>All Paintings</h1>
-            <p>Explore all the paintings in our collection.</p>
-        </div>
-    </div>
+    <h1>All Paintings</h1>
     
-    <!-- Collapsible Sort Options for Mobile -->
+    <!-- Sort Options -->
     <div class="row mb-3">
         <div class="col-12 text-center">
-            <button class="btn btn-primary d-block d-md-none" type="button" data-toggle="collapse" data-target="#sortOptions" aria-expanded="false" aria-controls="sortOptions">
-                Sort Options
-            </button>
-            <div class="collapse mt-3 d-md-none" id="sortOptions">
-                <div class="btn-group" role="group" aria-label="Sort options">
-                    <a href="?sort_by=title&order=asc" class="btn btn-secondary">Sort by Title (A-Z)</a>
-                    <a href="?sort_by=title&order=desc" class="btn btn-secondary">Sort by Title (Z-A)</a>
-                    <a href="?sort_by=price&order=asc" class="btn btn-secondary">Sort by Price (Low to High)</a>
-                    <a href="?sort_by=price&order=desc" class="btn btn-secondary">Sort by Price (High to Low)</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Sort Options for Desktop -->
-    <div class="row mb-3 d-none d-md-flex">
-        <div class="col-12 text-center">
-            <div class="btn-group" role="group" aria-label="Sort options">
-                <a href="?sort_by=title&order=asc" class="btn btn-secondary">Sort by Title (A-Z)</a>
-                <a href="?sort_by=title&order=desc" class="btn btn-secondary">Sort by Title (Z-A)</a>
-                <a href="?sort_by=price&order=asc" class="btn btn-secondary">Sort by Price (Low to High)</a>
-                <a href="?sort_by=price&order=desc" class="btn btn-secondary">Sort by Price (High to Low)</a>
-            </div>
+            <form method="GET" class="form-inline">
+                <label for="sort_by" class="mr-2">Sort by:</label>
+                <select name="sort_by" id="sort_by" class="form-control mr-2">
+                    <option value="title" {% if sort_by == 'title' %}selected{% endif %}>Title</option>
+                    <option value="price" {% if sort_by == 'price' %}selected{% endif %}>Price</option>
+                </select>
+                <select name="order" id="order" class="form-control mr-2">
+                    <option value="asc" {% if order == 'asc' %}selected{% endif %}>Ascending</option>
+                    <option value="desc" {% if order == 'desc' %}selected{% endif %}>Descending</option>
+                </select>
+                <button type="submit" class="btn btn-primary">Sort</button>
+            </form>
         </div>
     </div>
     
@@ -45,11 +27,12 @@
         {% for painting in page_obj %}
             <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                 <div class="card">
+                    <img src="{{ painting.image.url }}" class="card-img-top" alt="{{ painting.title }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ painting.title }}</h5>
                         <p class="card-text">{{ painting.description }}</p>
                         <p class="card-text"><strong>Price:</strong> ${{ painting.price }}</p>
-                        <a href="#" class="btn btn-primary">View Details</a>
+                        <a href="{% url 'painting_detail' painting.pk %}" class="btn btn-primary">View Details</a>
                     </div>
                 </div>
             </div>
@@ -63,7 +46,7 @@
                 <ul class="pagination justify-content-center">
                     {% if page_obj.has_previous %}
                         <li class="page-item">
-                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}&sort_by={{ sort_by }}&order={{ order }}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -72,12 +55,12 @@
                         {% if page_obj.number == num %}
                             <li class="page-item active"><a class="page-link" href="#">{{ num }}</a></li>
                         {% elif num > page_obj.number|add:-3 and num < page_obj.number|add:3 %}
-                            <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                            <li class="page-item"><a class="page-link" href="?page={{ num }}&sort_by={{ sort_by }}&order={{ order }}">{{ num }}</a></li>
                         {% endif %}
                     {% endfor %}
                     {% if page_obj.has_next %}
                         <li class="page-item">
-                            <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}&sort_by={{ sort_by }}&order={{ order }}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
