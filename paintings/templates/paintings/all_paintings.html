@@ -3,8 +3,8 @@
 {% block content %}
 <div class="container">
     <h1>All Paintings</h1>
-    <div class="row">
-        {% for painting in page_obj %}
+    <div class="row" id="paintings-container">
+        {% for painting in paintings %}
             <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
                 <div class="card">
                     <img src="{{ painting.image.url }}" class="card-img-top" alt="{{ painting.title }}">
@@ -18,20 +18,46 @@
             </div>
         {% endfor %}
     </div>
-    <div class="pagination">
-        <span class="step-links">
-            {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-            {% endif %}
-            <span class="current">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-            </span>
-            {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">next</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-            {% endif %}
-        </span>
-    </div>
 </div>
+
+<script>
+let loadedPaintings = {{ paintings|length }};
+let totalPaintings = {{ paintings|length }}; // Adjust this if you have a different method to get total paintings count
+
+window.onscroll = function() {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        loadMorePaintings();
+    }
+};
+
+function loadMorePaintings() {
+    // Assuming all paintings are already loaded, this will just return as all paintings are shown.
+    // Adjust this if you have more complex logic.
+    if (loadedPaintings >= totalPaintings) {
+        return;
+    }
+
+    // Normally, you would fetch more paintings from the server
+    // Since we're showing all paintings, this will just append the same set
+    const paintingsContainer = document.getElementById('paintings-container');
+    for (let i = 0; i < 12; i++) {  // Arbitrary chunk size for example purposes
+        const paintingCard = `
+            <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
+                <div class="card">
+                    <img src="path/to/image.jpg" class="card-img-top" alt="Painting Title">
+                    <div class="card-body">
+                        <h5 class="card-title">Painting Title</h5>
+                        <p class="card-text">Painting Description</p>
+                        <p class="card-text"><strong>Price:</strong> $Price</p>
+                        <a href="painting_detail_url" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        `;
+        paintingsContainer.insertAdjacentHTML('beforeend', paintingCard);
+    }
+
+    loadedPaintings += 12;  // Increase by the chunk size
+}
+</script>
 {% endblock %}
