@@ -3,7 +3,20 @@
 {% block content %}
 <div class="container">
     <h1>All Paintings</h1>
-    <div class="row" id="paintings-container">
+
+    <!-- Sorting Options -->
+    <div class="mb-3">
+        <label for="sort_by">Sort By:</label>
+        <select id="sort_by" class="form-select" onchange="applySort()">
+            <option value="title_asc" {% if sort_by == 'title' and order == 'asc' %}selected{% endif %}>Title (A-Z)</option>
+            <option value="title_desc" {% if sort_by == 'title' and order == 'desc' %}selected{% endif %}>Title (Z-A)</option>
+            <option value="price_asc" {% if sort_by == 'price' and order == 'asc' %}selected{% endif %}>Price (Low to High)</option>
+            <option value="price_desc" {% if sort_by == 'price' and order == 'desc' %}selected{% endif %}>Price (High to Low)</option>
+        </select>
+    </div>
+    
+    <!-- Painting Cards -->
+    <div class="row">
         {% for painting in paintings %}
             <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
                 <div class="card">
@@ -21,43 +34,10 @@
 </div>
 
 <script>
-let loadedPaintings = {{ paintings|length }};
-let totalPaintings = {{ paintings|length }}; // Adjust this if you have a different method to get total paintings count
-
-window.onscroll = function() {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        loadMorePaintings();
-    }
-};
-
-function loadMorePaintings() {
-    // Assuming all paintings are already loaded, this will just return as all paintings are shown.
-    // Adjust this if you have more complex logic.
-    if (loadedPaintings >= totalPaintings) {
-        return;
-    }
-
-    // Normally, you would fetch more paintings from the server
-    // Since we're showing all paintings, this will just append the same set
-    const paintingsContainer = document.getElementById('paintings-container');
-    for (let i = 0; i < 12; i++) {  // Arbitrary chunk size for example purposes
-        const paintingCard = `
-            <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-                <div class="card">
-                    <img src="path/to/image.jpg" class="card-img-top" alt="Painting Title">
-                    <div class="card-body">
-                        <h5 class="card-title">Painting Title</h5>
-                        <p class="card-text">Painting Description</p>
-                        <p class="card-text"><strong>Price:</strong> $Price</p>
-                        <a href="painting_detail_url" class="btn btn-primary">View Details</a>
-                    </div>
-                </div>
-            </div>
-        `;
-        paintingsContainer.insertAdjacentHTML('beforeend', paintingCard);
-    }
-
-    loadedPaintings += 12;  // Increase by the chunk size
+function applySort() {
+    const sortValue = document.getElementById('sort_by').value;
+    let [sort_by, order] = sortValue.split('_');
+    window.location.href = `?sort_by=${sort_by}&order=${order}`;
 }
 </script>
 {% endblock %}

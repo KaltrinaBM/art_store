@@ -1,19 +1,19 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Painting
 
+
 def all_paintings(request):
-    sort_by = request.GET.get('sort_by', 'title')
-    order = request.GET.get('order', 'asc')
+    sort_by = request.GET.get('sort_by', 'title')  
+    order = request.GET.get('order', 'asc')  
     order_prefix = '' if order == 'asc' else '-'
     paintings = Painting.objects.all().order_by(f'{order_prefix}{sort_by}')
+    
     context = {
         'paintings': paintings,
         'sort_by': sort_by,
         'order': order
     }
     return render(request, 'paintings/all_paintings.html', context)
-
-
 
 
 # def all_paintings(request):
