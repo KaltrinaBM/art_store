@@ -14,17 +14,16 @@
             <option value="price_desc" {% if sort_by == 'price' and order == 'desc' %}selected{% endif %}>Price (High to Low)</option>
         </select>
     </div>
-    
-    <!-- Painting Cards -->
+
+    <!-- Painting List -->
     <div class="row">
         {% for painting in paintings %}
-            <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-                <div class="card">
-                    <img src="{{ painting.image.url }}" class="card-img-top" alt="{{ painting.title }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ painting.title }}</h5>
-                        <p class="card-text">{{ painting.description }}</p>
-                        <p class="card-text"><strong>Price:</strong> ${{ painting.price }}</p>
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                <div class="painting-container">
+                    <img src="{{ painting.image.url }}" class="img-fluid" alt="{{ painting.title }}">
+                    <div class="painting-footer">
+                        <h5>{{ painting.title }}</h5>
+                        <p><strong>Price:</strong> ${{ painting.price }}</p>
                         <a href="{% url 'painting_detail' painting.pk %}" class="btn btn-primary">View Details</a>
                     </div>
                 </div>
