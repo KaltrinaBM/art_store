@@ -1,13 +1,13 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from paintings.models import Painting
-from django.db.models import Count
+from django.db.models import Q  # Import Q for complex queries
 import random
 
 def home(request):
     query = request.GET.get('q', '')
     if query:
-        paintings = Painting.objects.filter(title__icontains=query)
+        paintings = Painting.objects.filter(Q(title__icontains=query) | Q(description__icontains=query))
     else:
         all_paintings = list(Painting.objects.all())
         if len(all_paintings) > 3:
@@ -23,7 +23,7 @@ def home(request):
 
 
 def index(request):
-    paintings = Painting.objects.order_by('?')[:3] 
+    paintings = Painting.objects.order_by('?')[:3]
     context = {
         'paintings': paintings,
     }
@@ -32,10 +32,11 @@ def index(request):
 
 def painting_list(request):
     paintings = Painting.objects.all()
-    paginator = Paginator(paintings, 6)  
+    paginator = Paginator(paintings, 6)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'home/index.html', {'page_obj': page_obj})
+
 
 def all_paintings(request):
     sort_by = request.GET.get('sort_by', 'title')  # Default sort by title
