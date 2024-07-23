@@ -7,7 +7,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_views.painting_list, name='painting_list'),  # Home page
+    path('', include('home.urls')),
     path('accounts/', include('allauth.urls')),  # Django Allauth URLs for user authentication
     path('paintings/', include('paintings.urls')), 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
