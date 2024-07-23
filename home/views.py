@@ -1,6 +1,32 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render
-from .models import Painting
+from paintings.models import Painting
+from django.db.models import Q
+from django.db.models import Count
+
+def search(request):
+    query = request.GET.get('q', '')
+    if query:
+        paintings = Painting.objects.filter(
+            Q(title__icontains=query) |
+            Q(description__icontains(query))
+        )
+    else:
+        paintings = Painting.objects.all()
+    
+    context = {
+        'paintings': paintings,
+        'query': query,
+    }
+    return render(request, 'home/index.html', context)
+
+def index(request):
+    paintings = Painting.objects.order_by('?')[:3] 
+    context = {
+        'paintings': paintings,
+    }
+    return render(request, 'home/index.html', context)
+
 
 def painting_list(request):
     paintings = Painting.objects.all()
