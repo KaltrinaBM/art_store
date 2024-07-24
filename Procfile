@@ -1,1 +1,1 @@
-web: gunicorn art-store.wsgi
+web: gunicorn art_store.wsgi --log-file -
