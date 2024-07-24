@@ -10,6 +10,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path('accounts/', include('allauth.urls')),  # Django Allauth URLs for user authentication
     path('paintings/', include('paintings.urls')), 
+    path('bag/', include('bag.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
