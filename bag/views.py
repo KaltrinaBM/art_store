@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import (
+    render, redirect, reverse, HttpResponse, get_object_or_404
+)
 from django.contrib import messages
 from paintings.models import Painting 
 from django.http import JsonResponse
@@ -44,7 +46,9 @@ def adjust_bag(request, item_id):
         bag.pop(item_id)
 
     request.session['bag'] = bag
-    messages.success(request, f'Updated {painting.title} quantity to {bag.get(item_id, 0)}')
+    messages.success(
+        request, f'Updated {painting.title} quantity to {bag.get(item_id, 0)}'
+    )
     return redirect(reverse('view_bag'))
 
 def remove_from_bag(request, item_id):
