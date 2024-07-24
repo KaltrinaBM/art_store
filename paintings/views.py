@@ -1,18 +1,25 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Painting
-
+from django.core.paginator import Paginator
 
 def all_paintings(request):
     sort_by = request.GET.get('sort_by', 'title')  
-    order = request.GET.get('order', 'asc')  
-    order_prefix = '' if order == 'asc' else '-'
-    paintings = Painting.objects.all().order_by(f'{order_prefix}{sort_by}')
+    order = request.GET.get('order', 'asc') 
+
+    if order == 'desc':
+        sort_by = f'-{sort_by}'
+
+    paintings = Painting.objects.all().order_by(sort_by)
+    paginator = Paginator(paintings, 12) 
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     
     context = {
-        'paintings': paintings,
+        'page_obj': page_obj,
         'sort_by': sort_by,
-        'order': order
+        'order': order,
     }
+    
     return render(request, 'paintings/all_paintings.html', context)
 
 
