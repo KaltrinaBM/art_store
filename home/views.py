@@ -1,7 +1,7 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from paintings.models import Painting
-from django.db.models import Q  # Import Q for complex queries
+from django.db.models import Q
 import random
 
 def home(request):
