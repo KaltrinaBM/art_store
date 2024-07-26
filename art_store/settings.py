@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-wi9uqn!4w-&t7jukj0g$uk40klbk-d+%&6xfg!zrrx!ea=a#%%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-kaltrinabm-artstore-s83hv3pe7s2.ws.codeinstitute-ide.net',
