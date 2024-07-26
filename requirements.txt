@@ -6,6 +6,4 @@ pillow==10.4.0
 psycopg2==2.9.9
 pytz==2024.1
 sqlparse==0.5.0
-gunicorn
-dj_database_url
-whitenoise
+whitenoise==6.7.0

@@ -10,9 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+from pathlib import Path
 import os
 import dj_database_url
-from pathlib import Path
+if os.path.isfile('env.py'):
+    import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -118,14 +120,14 @@ WSGI_APPLICATION = 'art_store.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': dj_database_url.config(default='postgres://localhost')
-}
-
-
 # DATABASES = {
-#      'default': dj_database_url.parse('postgres://us0d4ktmhax:NYg0yZv4zgJK@ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech/polo_moan_reset_78011')
-#  }
+#     'default': dj_database_url.config(default='postgres://localhost')
+# }
+
+
+DATABASES = {
+    'default': dj_database_url.parse('postgres://us0d4ktmhax:NYg0yZv4zgJK@ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech/polo_moan_reset_78011')
+ }
 
 
 # Password validation
