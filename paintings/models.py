@@ -1,5 +1,6 @@
 from django.db import models
 import uuid
+from cloudinary.models import CloudinaryField
 
 class Painting(models.Model):
     title = models.CharField(max_length=255)
