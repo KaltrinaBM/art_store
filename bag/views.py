@@ -13,10 +13,24 @@ def update_icon_count(request):
 
 def view_bag(request):
     bag = request.session.get('bag', {})
-    paintings = {painting.id: painting for painting in Painting.objects.filter(id__in=bag.keys())}
+    bag_items = []
+    total_price = 0
+
+    for item_id, item_data in bag.items():
+        painting = get_object_or_404(Painting, pk=item_id)
+        quantity = item_data
+        item_total_price = quantity * painting.price
+        total_price += item_total_price
+        bag_items.append({
+            'item_id': item_id,
+            'painting': painting,
+            'quantity': quantity,
+            'total_price': item_total_price,
+        })
+
     context = {
-        'bag': bag,
-        'paintings': paintings,
+        'bag_items': bag_items,
+        'total_price': total_price,
     }
     return render(request, 'bag/bag.html', context)
 
