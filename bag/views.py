@@ -12,14 +12,17 @@ def update_icon_count(request):
     return JsonResponse({'count': count})
 
 def view_bag(request):
-    """ A view that renders the bag contents page """
-    return render(request, 'bag/bag.html')
+    bag = request.session.get('bag', {})
+    paintings = {painting.id: painting for painting in Painting.objects.filter(id__in=bag.keys())}
+    context = {
+        'bag': bag,
+        'paintings': paintings,
+    }
+    return render(request, 'bag/bag.html', context)
 
 
 
 def add_to_bag(request, item_id):
-    """ Add a quantity of the specified painting to the shopping bag """
-    painting = get_object_or_404(Painting, pk=item_id)
     quantity = int(request.POST.get('quantity', 1))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
@@ -30,7 +33,6 @@ def add_to_bag(request, item_id):
         bag[item_id] = quantity
 
     request.session['bag'] = bag
-    messages.success(request, f'Added {painting.title} to your bag')
     return redirect(redirect_url)
 
 
