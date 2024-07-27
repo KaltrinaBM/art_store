@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load bag_tags %} 
+{% load bag_tags %}
 
 {% block content %}
 <div class="container">
@@ -11,7 +11,7 @@
                 {% with painting=paintings|get_item:item_id %}
                 <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-4">
                     <div class="painting-container">
-                        <img src="{{ painting.image.url }}" class="img-fluid" alt="{{ painting.title }}">
+                        <img src="{{ painting.image.url }}" alt="{{ painting.title }}" class="img-fluid">
                         <div class="painting-footer">
                             <h5>{{ painting.title }}</h5>
                             <p><strong>Price:</strong> ${{ painting.price }}</p>
