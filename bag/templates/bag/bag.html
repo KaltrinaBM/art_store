@@ -11,14 +11,7 @@
                     <div class="painting-footer">
                         <h5>{{ item.painting.title }}</h5>
                         <p><strong>Price:</strong> ${{ item.painting.price }}</p>
-                        <p>
-                            <strong>Quantity:</strong>
-                            <form action="{% url 'adjust_bag' item.item_id %}" method="POST" class="d-inline-block">
-                                {% csrf_token %}
-                                <input type="number" name="quantity" value="{{ item.quantity }}" min="1" class="form-control d-inline-block w-auto" style="width: 70px;">
-                                <button type="submit" class="btn btn-info btn-sm">Update</button>
-                            </form>
-                        </p>
+                        <p><strong>Quantity:</strong> {{ item.quantity }}</p>
                         <p><strong>Total:</strong> ${{ item.total_price }}</p>
                         <a href="{% url 'remove_from_bag' item.item_id %}" class="btn btn-danger">Remove</a>
                     </div>
@@ -27,8 +20,11 @@
         {% endfor %}
     </div>
     <div class="bag-summary">
+        <h4>Free Delivery</h4>
         <h4>Total: ${{ total_price }}</h4>
-        <a href="" class="btn btn-primary">Proceed to Checkout</a>
+        <h4>Grand Total: ${{ grand_total }}</h4>
+        <a href="{% url 'checkout' %}" class="btn btn-primary">Proceed to Checkout</a>
+        <a href="{% url 'all_paintings' %}" class="btn btn-secondary">Keep Shopping</a>
     </div>
 </div>
 {% endblock %}

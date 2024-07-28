@@ -1,4 +1,3 @@
-# bag/views.py
 from django.shortcuts import (
     render, redirect, reverse, get_object_or_404
 )
@@ -16,6 +15,7 @@ def view_bag(request):
     bag = request.session.get('bag', {})
     bag_items = []
     total_price = 0
+    delivery_cost = 0  # Free delivery for all
 
     for item_id, item_data in bag.items():
         painting = get_object_or_404(Painting, pk=item_id)
@@ -32,6 +32,8 @@ def view_bag(request):
     context = {
         'bag_items': bag_items,
         'total_price': total_price,
+        'delivery_cost': delivery_cost,
+        'grand_total': total_price + delivery_cost,
     }
     return render(request, 'bag/bag.html', context)
 
@@ -76,3 +78,8 @@ def remove_from_bag(request, item_id):
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
+
+
+def checkout(request):
+    return render(request, 'checkout/checkout.html')
+

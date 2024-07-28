@@ -4,6 +4,7 @@ from django.urls import path, include
 from home import views as home_views
 from django.conf import settings
 from django.conf.urls.static import static
+from bag import views 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -11,6 +12,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),  # Django Allauth URLs for user authentication
     path('paintings/', include('paintings.urls')), 
     path('bag/', include('bag.urls')),
+    path('checkout/', views.checkout, name='checkout'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
