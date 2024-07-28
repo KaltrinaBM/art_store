@@ -1,8 +1,9 @@
+# bag/views.py
 from django.shortcuts import (
-    render, redirect, reverse, HttpResponse, get_object_or_404
+    render, redirect, reverse, get_object_or_404
 )
 from django.contrib import messages
-from paintings.models import Painting 
+from paintings.models import Painting
 from django.http import JsonResponse
 
 def update_icon_count(request):
@@ -34,8 +35,6 @@ def view_bag(request):
     }
     return render(request, 'bag/bag.html', context)
 
-
-
 def add_to_bag(request, item_id):
     quantity = int(request.POST.get('quantity', 1))
     redirect_url = request.POST.get('redirect_url')
@@ -48,7 +47,6 @@ def add_to_bag(request, item_id):
 
     request.session['bag'] = bag
     return redirect(redirect_url)
-
 
 def adjust_bag(request, item_id):
     """Adjust the quantity of the specified painting to the specified amount"""

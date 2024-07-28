@@ -92,26 +92,97 @@ a:hover {
 
 /* CSS for Back to Top button */
 .back-to-top {
-    display: none; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 20px; /* Place the button at the bottom of the page */
-    right: 20px; /* Place the button 20px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    background-color: #555; /* Set a background color */
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 15px; /* Some padding */
-    border-radius: 50%; /* Rounded corners */
-    font-size: 18px; /* Font size */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add a shadow */
-    transition: background-color 0.3s ease; /* Smooth background transition */
+    display: none;
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    z-index: 99; 
+    border: none; 
+    outline: none; 
+    background-color: #555; 
+    color: white; 
+    cursor: pointer; 
+    padding: 15px; 
+    border-radius: 50%;
+    font-size: 18px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+    transition: background-color 0.3s ease; 
 }
 
 .back-to-top:hover {
-    background-color: #333; /* Add a dark-grey background on hover */
+    background-color: #333; 
 }
+
+/* css/base.css */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #555;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.dropdown-content .dropdown-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.dropdown-content .dropdown-item p {
+    margin: 0;
+}
+
+.dropdown-content .dropdown-total {
+    padding: 10px;
+    text-align: center;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    font-size: 24px;
+    border: none;
+    outline: none;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.back-to-top:hover {
+    background-color: #333;
+}
+
 
 
 
