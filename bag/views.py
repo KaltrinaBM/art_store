@@ -1,5 +1,5 @@
 from django.shortcuts import (
-    render, redirect, reverse, get_object_or_404
+    render, redirect, reverse, HttpResponse, get_object_or_404
 )
 from django.contrib import messages
 from paintings.models import Painting
@@ -15,7 +15,6 @@ def view_bag(request):
     bag = request.session.get('bag', {})
     bag_items = []
     total_price = 0
-    delivery_cost = 0  # Free delivery for all
 
     for item_id, item_data in bag.items():
         painting = get_object_or_404(Painting, pk=item_id)
@@ -32,8 +31,6 @@ def view_bag(request):
     context = {
         'bag_items': bag_items,
         'total_price': total_price,
-        'delivery_cost': delivery_cost,
-        'grand_total': total_price + delivery_cost,
     }
     return render(request, 'bag/bag.html', context)
 
@@ -62,10 +59,7 @@ def adjust_bag(request, item_id):
         bag.pop(item_id)
 
     request.session['bag'] = bag
-    messages.success(
-        request, f'Updated {painting.title} quantity to {bag.get(item_id, 0)}'
-    )
-    return redirect(reverse('view_bag'))
+    return JsonResponse({'success': True})
 
 def remove_from_bag(request, item_id):
     """Remove the item from the shopping bag"""
@@ -79,7 +73,5 @@ def remove_from_bag(request, item_id):
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
 
-
 def checkout(request):
     return render(request, 'checkout/checkout.html')
-
