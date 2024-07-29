@@ -11,8 +11,9 @@
                     <div class="painting-footer">
                         <h5>{{ item.painting.title }}</h5>
                         <p><strong>Price:</strong> ${{ item.painting.price }}</p>
-                        <p><strong>Quantity:</strong> {{ item.quantity }}</p>
-                        <p><strong>Total:</strong> ${{ item.total_price }}</p>
+                        <p><strong>Quantity:</strong></p>
+                        <input type="number" name="quantity" value="{{ item.quantity }}" min="1" class="form-control mb-2 mr-sm-2 quantity-input" data-item-id="{{ item.item_id }}" data-price="{{ item.painting.price }}">
+                        <p><strong>Total:</strong> $<span class="item-total">{{ item.total_price }}</span></p>
                         <a href="{% url 'remove_from_bag' item.item_id %}" class="btn btn-danger">Remove</a>
                     </div>
                 </div>
@@ -21,10 +22,41 @@
     </div>
     <div class="bag-summary">
         <h4>Free Delivery</h4>
-        <h4>Total: ${{ total_price }}</h4>
-        <h4>Grand Total: ${{ grand_total }}</h4>
+        <h4>Total: $<span id="total-price">{{ total_price }}</span></h4>
         <a href="{% url 'checkout' %}" class="btn btn-primary">Proceed to Checkout</a>
         <a href="{% url 'all_paintings' %}" class="btn btn-secondary">Keep Shopping</a>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('.quantity-input').on('change', function() {
+            var item_id = $(this).data('item-id');
+            var new_quantity = $(this).val();
+            var item_price = $(this).data('price');
+            var item_total = new_quantity * item_price;
+            $(this).closest('.painting-footer').find('.item-total').text(item_total.toFixed(2));
+            
+            var total_price = 0;
+            $('.quantity-input').each(function() {
+                var price = $(this).data('price');
+                var quantity = $(this).val();
+                total_price += price * quantity;
+            });
+            $('#total-price').text(total_price.toFixed(2));
+
+            $.ajax({
+                url: "{% url 'adjust_bag' 'ITEM_ID_PLACEHOLDER' %}".replace('ITEM_ID_PLACEHOLDER', item_id),
+                method: "POST",
+                data: {
+                    'quantity': new_quantity,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    console.log('Bag updated');
+                }
+            });
+        });
+    });
+</script>
 {% endblock %}
