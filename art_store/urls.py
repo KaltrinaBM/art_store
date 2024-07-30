@@ -13,7 +13,8 @@ urlpatterns = [
     path('paintings/', include('paintings.urls')), 
     path('bag/', include('bag.urls')),
     path('checkout/', views.checkout, name='checkout'),
-    path('reviews/', include('reviews.urls'))
+    path('reviews/', include('reviews.urls')),
+    path('blog/', include('blog.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

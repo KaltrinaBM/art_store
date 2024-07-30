@@ -48,7 +48,7 @@
         {% endif %}
     </div>
 
-    <!-- Example Blog Hero Section -->
+    <!-- Blog Hero Section -->
     <div class="row mt-5">
         <div class="col-12">
             <div class="jumbotron">
@@ -56,9 +56,18 @@
                 <p class="lead">Check out our latest blog post on the importance of art in modern living spaces.</p>
                 <hr class="my-4">
                 <p>Explore insights, tips, and more from our team of art experts.</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Read More</a>
+                {% if latest_blog_post %}
+                    <h2>{{ latest_blog_post.title }}</h2>
+                    <p class="lead">{{ latest_blog_post.excerpt }}</p>
+                    <hr class="my-4">
+                    <p>{{ latest_blog_post.content|truncatewords:30 }}</p>
+                    <a class="btn btn-primary btn-lg" href="{% url 'blog_post_detail' latest_blog_post.pk %}" role="button">Read More</a>
+                {% else %}
+                    <p>No blog posts available at the moment. Check back later!</p>
+                {% endif %}
             </div>
         </div>
     </div>
 </div>
 {% endblock %}
+

@@ -2,6 +2,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render
 from paintings.models import Painting
 from django.db.models import Q
+from blog.models import BlogPost
 import random
 
 def home(request):
@@ -14,13 +15,14 @@ def home(request):
             paintings = random.sample(all_paintings, 3)
         else:
             paintings = all_paintings
+    latest_blog_post = BlogPost.objects.order_by('-created_at').first()
 
     context = {
         'paintings': paintings,
         'query': query,
+        'latest_blog_post': latest_blog_post,
     }
     return render(request, 'home/index.html', context)
-
 
 def index(request):
     paintings = Painting.objects.order_by('?')[:3]
