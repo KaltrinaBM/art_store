@@ -1,6 +1,4 @@
-from django.shortcuts import (
-    render, redirect, reverse, HttpResponse, get_object_or_404
-)
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from paintings.models import Painting
 from django.http import JsonResponse
@@ -35,6 +33,7 @@ def view_bag(request):
     return render(request, 'bag/bag.html', context)
 
 def add_to_bag(request, item_id):
+    painting = get_object_or_404(Painting, pk=item_id)
     quantity = int(request.POST.get('quantity', 1))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
@@ -50,7 +49,6 @@ def add_to_bag(request, item_id):
     return redirect(redirect_url)
 
 def adjust_bag(request, item_id):
-    """Adjust the quantity of the specified painting to the specified amount"""
     painting = get_object_or_404(Painting, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
@@ -66,7 +64,6 @@ def adjust_bag(request, item_id):
     return JsonResponse({'success': True})
 
 def remove_from_bag(request, item_id):
-    """Remove the item from the shopping bag"""
     painting = get_object_or_404(Painting, pk=item_id)
     bag = request.session.get('bag', {})
 
