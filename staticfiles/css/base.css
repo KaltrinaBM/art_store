@@ -235,45 +235,6 @@ a:hover {
     }
 }
 
-/* ------------------------------- bootstrap toasts */
-
-.message-container {
-    position: fixed;
-    top: 72px;
-    right: 15px;
-    z-index: 99999999999;
-}
-
-.custom-toast {
-    overflow: visible;
-}
-
-.toast-capper {
-    height: 2px;
-}
-
-
-/* Base styles */
-
-
-.card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-
-/* Ensure hero section and cards are responsive */
-.jumbotron {
-    padding: 2rem 1rem;
-}
-
-.card-body {
-    text-align: center;
-}
-
-
-
-
-
 @media (max-width: 576px) {
     .card-body {
         text-align: left;
