@@ -41,8 +41,10 @@ def add_to_bag(request, item_id):
 
     if item_id in bag:
         bag[item_id] += quantity
+        messages.success(request, f'Updated {painting.title} quantity to {bag[item_id]}')
     else:
         bag[item_id] = quantity
+        messages.success(request, f'Added {painting.title} to your bag')
 
     request.session['bag'] = bag
     return redirect(redirect_url)
@@ -55,8 +57,10 @@ def adjust_bag(request, item_id):
 
     if quantity > 0:
         bag[item_id] = quantity
+        messages.success(request, f'Updated {painting.title} quantity to {bag[item_id]}')
     else:
         bag.pop(item_id)
+        messages.success(request, f'Removed {painting.title} from your bag')
 
     request.session['bag'] = bag
     return JsonResponse({'success': True})
