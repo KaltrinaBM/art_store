@@ -40,6 +40,7 @@
 
 <body>
     {% load bag_tags %}
+    {% include 'includes/toasts.html' %}
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="{% url 'home' %}">Art Store</a>
@@ -130,6 +131,7 @@
     </script>
 
     {% block extra_js %}{% endblock %}
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 
 </html>
