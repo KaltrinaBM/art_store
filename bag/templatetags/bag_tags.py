@@ -12,3 +12,9 @@ def bag_count(request):
     """ Custom tag to get the count of items in the bag """
     bag = request.session.get('bag', {})
     return sum(quantity for quantity in bag.values())
+
+
+@register.filter
+def mul(value, arg):
+    return value * arg
+
