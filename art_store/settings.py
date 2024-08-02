@@ -63,6 +63,9 @@ INSTALLED_APPS = [
     'blog',
     'contact',
     'checkout',
+
+    #Other
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -79,6 +82,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'art_store.urls'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -93,8 +98,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
                 'bag.context_processors.bag_items_processor',
             ],
+            'builtins' : [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
