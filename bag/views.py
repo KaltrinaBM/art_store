@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from paintings.models import Painting
 from django.http import JsonResponse
+from django.contrib.auth import authenticate, login
 
 def update_icon_count(request):
     """ Update the count displayed on the bag icon """
