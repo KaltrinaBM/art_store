@@ -1,39 +1,47 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
+from django.conf import settings
+
 from .forms import OrderForm
+from bag.utils import get_bag_items
+from .models import Order, OrderItem
 from paintings.models import Painting
 
+import stripe
+import json
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+
 def checkout(request):
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY
+    stripe_secret_key = settings.STRIPE_SECRET_KEY
+
     bag = request.session.get('bag', {})
     if not bag:
         messages.error(request, "There's nothing in your bag at the moment")
-        return redirect(reverse('paintings'))
+        return redirect(reverse('products'))
+
+    current_bag = get_bag_items(request)
+    total = current_bag['total_price']
+    stripe_total = round(total * 100)
+    stripe.api_key = stripe_secret_key
+    intent = stripe.PaymentIntent.create(
+        amount=stripe_total,
+        currency=settings.STRIPE_CURRENCY,
+    )
 
     order_form = OrderForm()
-    
-    # Calculate painting_count, total, and grand_total
-    bag_items = []
-    painting_count = 0
-    total = 0
-    for item_id, quantity in bag.items():
-        painting = get_object_or_404(Painting, pk=item_id)
-        subtotal = painting.price * quantity
-        total += subtotal
-        painting_count += quantity
-        bag_items.append({
-            'painting': painting,
-            'quantity': quantity,
-            'subtotal': subtotal,
-        })
-    grand_total = total  # Adjust as needed
+
+    if not stripe_public_key:
+        messages.warning(request, 'Stripe public key is missing. \
+            Did you forget to set it in your environment?')
 
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
-        'bag_items': bag_items,
-        'painting_count': painting_count,
-        'total': total,
-        'grand_total': grand_total,
+        'stripe_public_key': settings.STRIPE_PUBLIC_KEY,
+        'client_secret': intent.client_secret,
     }
 
     return render(request, template, context)
