@@ -1,24 +1,22 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
-
 from .forms import OrderForm
 from bag.utils import get_bag_items
 from .models import Order, OrderItem
 from paintings.models import Painting
-
 import stripe
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 # Set the Stripe API key
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
-    stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
-
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -36,13 +34,13 @@ def checkout(request):
             for item_id, item_data in bag.items():
                 try:
                     painting = Painting.objects.get(id=item_id)
-                    if isinstance(item_data, int):
-                        order_item = OrderItem(
-                            order=order,
-                            painting=painting,
-                            quantity=item_data,
-                        )
-                        order_item.save()
+                    order_item = OrderItem(
+                        order=order,
+                        painting=painting,
+                        quantity=item_data,
+                        price=painting.price  # Ensure price is set
+                    )
+                    order_item.save()
                 except Painting.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your bag wasn't found in our database. "
@@ -54,13 +52,12 @@ def checkout(request):
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
-            messages.error(request, 'There was an error with your form. \
-                Please double check your information.')
+            messages.error(request, 'There was an error with your form. Please double check your information.')
     else:
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, "There's nothing in your bag at the moment")
-            return redirect(reverse('all_paintings'))
+            return redirect(reverse('products'))
 
         current_bag = get_bag_items(request)
         total = current_bag['total_price']
@@ -73,8 +70,7 @@ def checkout(request):
         order_form = OrderForm()
 
     if not stripe_public_key:
-        messages.warning(request, 'Stripe public key is missing. \
-            Did you forget to set it in your environment?')
+        messages.warning(request, 'Stripe public key is missing. Did you forget to set it in your environment?')
 
     template = 'checkout/checkout.html'
     context = {
@@ -84,7 +80,7 @@ def checkout(request):
     }
 
     return render(request, template, context)
-
+    
 def checkout_success(request, order_number):
     """
     Handle successful checkouts

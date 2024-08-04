@@ -109,6 +109,12 @@ TEMPLATES = [
         },
     },
 ]
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-kaltrinabm-artstore-s83hv3pe7s2.ws.codeinstitute-ide.net',
+]
+
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 AUTHENTICATION_BACKENDS = (
