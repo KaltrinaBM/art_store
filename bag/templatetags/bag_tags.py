@@ -13,8 +13,3 @@ def bag_count(request):
     bag = request.session.get('bag', {})
     return sum(quantity for quantity in bag.values())
 
-
-@register.filter
-def mul(value, arg):
-    return value * arg
-
