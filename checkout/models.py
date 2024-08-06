@@ -1,6 +1,9 @@
 import uuid
+
 from django.db import models
 from django.db.models import Sum
+from django.conf import settings
+
 from paintings.models import Painting
 
 class Order(models.Model):
@@ -17,10 +20,12 @@ class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    original_bag = models.TextField(null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
 
     def _generate_order_number(self):
         """Generate a random, unique order number using UUID"""
-        return str(uuid.uuid4().hex)[:32].upper()  # Ensure it is within 32 characters
+        return str(uuid.uuid4().hex)[:32].upper()
 
     def update_total(self):
         """Update grand total each time a line item is added, without accounting for delivery costs as shipping is free."""
