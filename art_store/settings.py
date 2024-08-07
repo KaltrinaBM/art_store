@@ -36,6 +36,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-kaltrinabm-artstore-s83hv3pe7s2.ws.codeinstitute-ide.net',
+    '8000-kaltrinabm-artstore-9cy9s60k446.ws.codeinstitute-ide.net',
     'art-store-bdbdae133a85.herokuapp.com',
     'localhost',
     ]
@@ -113,6 +114,8 @@ TEMPLATES = [
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-kaltrinabm-artstore-s83hv3pe7s2.ws.codeinstitute-ide.net',
+    'https://kaltrinabm-artstore-9cy9s60k446.ws.codeinstitute-ide.net',
+    'https://8000-kaltrinabm-artstore-9cy9s60k446.ws.codeinstitute-ide.net'
 ]
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
