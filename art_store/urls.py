@@ -12,7 +12,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),  # Django Allauth URLs for user authentication
     path('paintings/', include('paintings.urls')), 
     path('bag/', include('bag.urls')),
-    path('checkout/', views.checkout, name='checkout'),
     path('reviews/', include('reviews.urls')),
     path('blog/', include('blog.urls')),
     path('contact/', include('contact.urls')),
