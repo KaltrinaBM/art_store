@@ -1,9 +1,11 @@
 {% load i18n %}
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
         <title>
             {% block head_title %}
             {% endblock head_title %}
@@ -11,61 +13,61 @@
         {% block extra_head %}
         {% endblock extra_head %}
     </head>
-    <body>
+    <body class="{% if no_margin %}body-no-margin{% endif %}">
         {% block body %}
             {% if messages %}
-                <div>
+                <div class="messages">
                     <strong>{% trans "Messages:" %}</strong>
                     <ul>
                         {% for message in messages %}<li>{{ message }}</li>{% endfor %}
                     </ul>
                 </div>
             {% endif %}
-            <div>
-                <strong>{% trans "Menu:" %}</strong>
-                <ul>
+            <div class="menu">
+                <strong>{% trans "Get Started" %}</strong>
+                <ul class="horizontal-menu">
                     {% if user.is_authenticated %}
                         {% url 'account_email' as email_url %}
                         {% if email_url %}
                             <li>
-                                <a href="{{ email_url }}">{% trans "Change Email" %}</a>
+                                <a href="{{ email_url }}" class="menu-link button-border">{% trans "Change Email" %}</a>
                             </li>
                         {% endif %}
                         {% url 'account_change_password' as change_password_url %}
                         {% if change_password_url %}
                             <li>
-                                <a href="{{ change_password_url }}">{% trans "Change Password" %}</a>
+                                <a href="{{ change_password_url }}" class="menu-link button-border">{% trans "Change Password" %}</a>
                             </li>
                         {% endif %}
                         {% url 'mfa_index' as mfa_url %}
                         {% if mfa_url %}
                             <li>
-                                <a href="{{ mfa_url }}">{% trans "Two-Factor Authentication" %}</a>
+                                <a href="{{ mfa_url }}" class="menu-link button-border">{% trans "Two-Factor Authentication" %}</a>
                             </li>
                         {% endif %}
                         {% url 'usersessions_list' as usersessions_list_url %}
                         {% if usersessions_list_url %}
                             <li>
-                                <a href="{{ usersessions_list_url }}">{% trans "Sessions" %}</a>
+                                <a href="{{ usersessions_list_url }}" class="menu-link button-border">{% trans "Sessions" %}</a>
                             </li>
                         {% endif %}
                         {% url 'account_logout' as logout_url %}
                         {% if logout_url %}
                             <li>
-                                <a href="{{ logout_url }}">{% trans "Sign Out" %}</a>
+                                <a href="{{ logout_url }}" class="menu-link button-border">{% trans "Sign Out" %}</a>
                             </li>
                         {% endif %}
                     {% else %}
                         {% url 'account_login' as login_url %}
                         {% if login_url %}
                             <li>
-                                <a href="{{ login_url }}">{% trans "Sign In" %}</a>
+                                <a href="{{ login_url }}" class="menu-link button-border">{% trans "Sign In" %}</a>
                             </li>
                         {% endif %}
                         {% url 'account_signup' as signup_url %}
                         {% if signup_url %}
                             <li>
-                                <a href="{{ signup_url }}">{% trans "Sign Up" %}</a>
+                                <a href="{{ signup_url }}" class="menu-link button-border">{% trans "Sign Up" %}</a>
                             </li>
                         {% endif %}
                     {% endif %}
