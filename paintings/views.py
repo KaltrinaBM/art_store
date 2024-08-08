@@ -3,6 +3,7 @@ from .models import Painting
 from django.core.paginator import Paginator
 from .forms import PaintingForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 def all_paintings(request):
     sort_by = request.GET.get('sort_by', 'title')  
@@ -73,7 +74,7 @@ def edit_painting(request, painting_id):
             messages.error(request, 'Failed to update painting. Please ensure the form is valid.')
     else:
         form = PaintingForm(instance=painting)
-        messages.info(request, f'You are editing {painting.title}')
+        messages.info(request, f'You are editing { painting.title }')
 
     template = 'paintings/edit_painting.html'
     context = {
