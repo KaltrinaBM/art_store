@@ -38,6 +38,17 @@ def painting_detail(request, pk):
 def add_painting(request):
     """ Add a painting to the store """
     form = PaintingForm()
+    if request.method == 'POST':
+        form = PaintingForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added product!')
+            return redirect(reverse('add_painting'))
+        else:
+            messages.error(request, 'Failed to add painting. Please ensure the form is valid.')
+    else:
+        form = PaintingForm()
+
     template = 'paintings/add_painting.html'
     context = {
         'form': form,
