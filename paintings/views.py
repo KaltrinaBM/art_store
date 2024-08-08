@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Painting
 from django.core.paginator import Paginator
+from .forms import PaintingForm
 
 def all_paintings(request):
     sort_by = request.GET.get('sort_by', 'title')  
@@ -33,3 +34,13 @@ def all_paintings(request):
 def painting_detail(request, pk):
     painting = get_object_or_404(Painting, pk=pk)
     return render(request, 'paintings/painting_detail.html', {'painting': painting})
+
+def add_painting(request):
+    """ Add a painting to the store """
+    form = PaintingForm()
+    template = 'paintings/add_painting.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
