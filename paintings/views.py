@@ -41,9 +41,9 @@ def add_painting(request):
     if request.method == 'POST':
         form = PaintingForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Successfully added product!')
-            return redirect(reverse('add_painting'))
+            painting = form.save()
+            messages.success(request, 'Successfully added painting!')
+            return redirect(reverse('painting_detail', args=[painting.id]))
         else:
             messages.error(request, 'Failed to add painting. Please ensure the form is valid.')
     else:
@@ -80,3 +80,12 @@ def edit_painting(request, painting_id):
     }
 
     return render(request, template, context)
+
+
+
+def delete_painting(request, painting_id):
+    """ Delete a painting from the store """
+    painting = get_object_or_404(Painting, pk=painting_id)
+    painting.delete()
+    messages.success(request, 'Painting deleted!')
+    return redirect(reverse('all'))

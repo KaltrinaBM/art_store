@@ -36,6 +36,12 @@
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         <button type="submit" class="btn btn-success mt-2">Add to Bag</button>
                     </form>
+                    {% if request.user.is_superuser %}
+                    <small class="ml-3">
+                        <a href="{% url 'edit_painting' painting.id %}">Edit this painting</a> | 
+                        <a class="text-danger" href="{% url 'delete_painting' painting.id %}">Delete this Painting</a>
+                    </small>
+                {% endif %}
                 </div>
             </div>
         </div>
