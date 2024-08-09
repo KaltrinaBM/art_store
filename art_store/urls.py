@@ -12,7 +12,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('accounts/', include('allauth.urls')),  # Django Allauth URLs for user authentication
-    path('paintings/', include('paintings.urls')), 
+    path('paintings/', include('paintings.urls')),
     path('bag/', include('bag.urls')),
     path('reviews/', include('reviews.urls')),
     path('blog/', include('blog.urls')),
@@ -20,6 +20,6 @@ urlpatterns = [
     path('checkout/', include('checkout.urls')),
     path('profile/', include('profiles.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Custom error handlers
 handler404 = 'art_store.views.handler404'
-
-
