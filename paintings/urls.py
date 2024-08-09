@@ -3,8 +3,9 @@ from . import views
 
 urlpatterns = [
     path('all/', views.all_paintings, name='all_paintings'),
-    path('<int:pk>/', views.painting_detail, name='painting_detail'),
+    path('<int:painting_id>/', views.painting_detail, name='painting_detail'),  # Changed 'pk' to 'painting_id'
     path('add/', views.add_painting, name='add_painting'),
     path('edit/<int:painting_id>/', views.edit_painting, name='edit_painting'),
     path('delete/<int:painting_id>/', views.delete_painting, name='delete_painting'),
 ]
+

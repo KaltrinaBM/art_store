@@ -6,7 +6,7 @@
             "title": "Abstract Innocence",
             "description": "A vibrant exploration of youth, captured in a playful blend of colors and shapes. This abstract portrait invites the viewer to discover the hidden depths within.",
             "price": 1000.0,
-            "image": "abstract.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722113464/media/paintings/abstract_xwl1ug.jpg",
             "sku": "SKU1"
         }
     },
@@ -17,7 +17,7 @@
             "title": "Animal Adventure",
             "description": "Bring the wild world to life with this enchanting mural! Featuring a colorful cast of animal characters, it's perfect for sparking imagination and creativity in any child's room.",
             "price": 1200.0,
-            "image": "animals.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114022/media/paintings/animals_ug5pzu.jpg",
             "sku": "SKU2"
         }
     },
@@ -28,7 +28,7 @@
             "title": "Avocado Dream",
             "description": "A fresh and vibrant ode to this superfood. This artwork captures the essence of the avocado in a visually appealing and contemporary style.",
             "price": 1200.0,
-            "image": "avocado.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114628/media/paintings/avocado_jj0hzv.jpg",
             "sku": "SKU3"
         }
     },
@@ -39,7 +39,7 @@
             "title": "Mandala Maiden",
             "description": "A serene and enchanting piece featuring a young girl surrounded by colorful mandalas and balloons. This artwork evokes a sense of joy, wonder, and inner peace.",
             "price": 2200.0,
-            "image": "balloons.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114700/media/paintings/balloons_kjt60f.jpg",
             "sku": "SKU4"
         }
     },
@@ -50,7 +50,7 @@
             "title": "Man in Circles",
             "description": "A modern and minimalist portrait created using a captivating circle technique. This artwork explores the interplay of form and expression in a unique and thought-provoking way.",
             "price": 1200.0,
-            "image": "bob.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114724/media/paintings/bob_dnkmn7.jpg",
             "sku": "SKU5"
         }
     },
@@ -61,7 +61,7 @@
             "title": "Flutter and Bloom",
             "description": "A vibrant tapestry of mandala flowers and a graceful butterfly, inviting you into a world of tranquility and beauty. Perfect for creating a serene atmosphere in any space.",
             "price": 2000.0,
-            "image": "butterfly.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114747/media/paintings/butterfly_c5w5zd.jpg",
             "sku": "SKU6"
         }
     },
@@ -72,7 +72,7 @@
             "title": "Purrfectly Pretty",
             "description": "A playful and whimsical portrayal of a cat adorned with a stunning bouquet of colorful flowers. This unique piece is sure to bring a smile to your face.",
             "price": 1500.0,
-            "image": "cat.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114783/media/paintings/cat_cjtoln.jpg",
             "sku": "SKU7"
         }
     },
@@ -83,7 +83,7 @@
             "title": "Revolutionary Spirit",
             "description": "A timeless and powerful portrait of Che Guevara, rendered in classic black and white. This piece captures the essence of a revolutionary leader and inspires contemplation.",
             "price": 1300.0,
-            "image": "che_guevara.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114805/media/paintings/che-guevara_ty2ado.jpg",
             "sku": "SKU8"
         }
     },
@@ -94,7 +94,7 @@
             "title": "Iconic in Dots",
             "description": "A fresh and contemporary take on the legendary Marilyn Monroe, using a captivating circle technique. This artwork blends classic beauty with modern art for a striking effect.",
             "price": 1100.0,
-            "image": "circles.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114851/media/paintings/circles_qdsimy.jpg",
             "sku": "SKU9"
         }
     },
@@ -105,7 +105,7 @@
             "title": "Woman of Words",
             "description": "A vibrant and expressive portrait of a woman adorned with colorful letters. This piece celebrates individuality and the power of language.",
             "price": 1000.0,
-            "image": "color_letters.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722113723/media/paintings/color-letters_f9e6dq.jpg",
             "sku": "SKU10"
         }
     },
@@ -116,7 +116,7 @@
             "title": "Waddle and Play",
             "description": "A playful and colorful mural featuring adorable ducks, perfect for sparking imagination and joy in any child's room.",
             "price": 2000.0,
-            "image": "duck.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722113741/media/paintings/duck_xlzorb.jpg",
             "sku": "SKU11"
         }
     },
@@ -127,7 +127,7 @@
             "title": "Window to the Soul",
             "description": "A mesmerizing exploration of the human eye, captured in vivid detail. This live art piece invites viewers to connect on a deeper level.",
             "price": 1800.0,
-            "image": "eye.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722113776/media/paintings/eye_siqda6.jpg",
             "sku": "SKU12"
         }
     },
@@ -138,7 +138,7 @@
             "title": "Pen and Petal",
             "description": "A delicate and intricate floral composition created with meticulous pen strokes. This artwork celebrates the beauty of nature in a unique and contemporary style.",
             "price": 1400.0,
-            "image": "flower.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114895/media/paintings/flower_yawfk6.jpg",
             "sku": "SKU13"
         }
     },
@@ -149,7 +149,7 @@
             "title": "Fruitful Bounty",
             "description": "A still life showcasing a colorful and tempting array of fresh fruits. This artwork evokes a sense of abundance and vitality.",
             "price": 1600.0,
-            "image": "fruits.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722113801/media/paintings/fruits_anmqxw.jpg",
             "sku": "SKU14"
         }
     },
@@ -160,7 +160,7 @@
             "title": "Nature's Muse",
             "description": "A surreal and captivating mural depicting a woman with a vibrant crown of fruits. This artwork blends feminine beauty with natural elements for a striking visual impact.",
             "price": 3000.0,
-            "image": "girl_fruits.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722113824/media/paintings/girl-fruits_uxmsug.jpg",
             "sku": "SKU15"
         }
     },
@@ -171,7 +171,7 @@
             "title": "Abstract Elegance",
             "description": "A contemporary exploration of femininity, featuring a woman defined by bold shapes and colors, accented by the intriguing detail of glasses.",
             "price": 1000.0,
-            "image": "glasses.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722113887/media/paintings/glasses_txcuw2.jpg",
             "sku": "SKU16"
         }
     },
@@ -182,7 +182,7 @@
             "title": "Tactician in Tones",
             "description": "A classic portrait of the football mastermind, Pep Guardiola, rendered in stark black and white for a timeless and powerful image.",
             "price": 1600.0,
-            "image": "guardiola.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722113914/media/paintings/guardiola_tjcxrj.jpg",
             "sku": "SKU17"
         }
     },
@@ -193,7 +193,7 @@
             "title": "Tree of Two Worlds",
             "description": "A visually striking piece featuring a red and silver tree split across two frames. This artwork creates a sense of duality and intrigue.",
             "price": 1200.0,
-            "image": "half_tree.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722113958/media/paintings/half-tree_oejhjh.jpg",
             "sku": "SKU18"
         }
     },
@@ -204,7 +204,7 @@
             "title": "Sunset Serenade",
             "description": "A dreamlike scene of a woman playing a harp, surrounded by intricate mandala patterns against a vibrant sunset backdrop. This artwork evokes a sense of peace and tranquility.",
             "price": 1800.0,
-            "image": "harp.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722113990/media/paintings/harp_mxvqwm.jpg",
             "sku": "SKU19"
         }
     },
@@ -215,7 +215,7 @@
             "title": "Geometric Abode",
             "description": "A playful and imaginative depiction of a house constructed entirely from colorful ruler lines. This artwork brings a touch of whimsy to any space.",
             "price": 1000.0,
-            "image": "house.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114127/media/paintings/house_ltuljd.jpg",
             "sku": "SKU20"
         }
     },
@@ -226,7 +226,7 @@
             "title": "City of Childhood",
             "description": "A nostalgic and heartwarming mural depicting children as protectors of cherished memories, represented by photographs in frames placed over a vibrant cityscape.",
             "price": 2500.0,
-            "image": "kids.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114187/media/paintings/kids_c4qtku.jpg",
             "sku": "SKU21"
         }
     },
@@ -237,7 +237,7 @@
             "title": "Lakeside Serenity",
             "description": "A peaceful and serene still life capturing the beauty of a still lake, inviting the viewer to escape into nature's tranquility.",
             "price": 1200.0,
-            "image": "lake.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114251/media/paintings/lake_wdeyqz.jpg",
             "sku": "SKU22"
         }
     },
@@ -248,7 +248,7 @@
             "title": "Silent Conversation",
             "description": "A striking and thought-provoking portrait of a woman composed entirely of letters, creating a visual and conceptual interplay between language and identity.",
             "price": 1300.0,
-            "image": "letters.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114343/media/paintings/letters_cfkcus.jpg",
             "sku": "SKU23"
         }
     },
@@ -259,7 +259,7 @@
             "title": "Global Tapestry",
             "description": "A vibrant and intricate world map transformed into a stunning mandala, celebrating the interconnectedness and diversity of our planet.",
             "price": 1900.0,
-            "image": "map.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114378/media/paintings/map_zpgibg.jpg",
             "sku": "SKU24"
         }
     },
@@ -270,7 +270,7 @@
             "title": "Doorway to Adventure",
             "description": "A playful and whimsical mural depicting a cat and mice engaged in a dynamic chase, adding a touch of fun and excitement to any doorway.",
             "price": 2000.0,
-            "image": "mouse.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114425/media/paintings/mouse_d63se5.jpg",
             "sku": "SKU25"
         }
     },
@@ -281,7 +281,7 @@
             "title": "Sole Searching",
             "description": "A captivating still life exploring the form, texture, and character of shoes, inviting a closer look at often overlooked objects.",
             "price": 1600.0,
-            "image": "shoes.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114465/media/paintings/shoes_mdpzu4.jpg",
             "sku": "SKU26"
         }
     },
@@ -292,7 +292,7 @@
             "title": "One Love in Color",
             "description": "A striking portrait of Bob Marley in classic black and white, with a burst of color highlighting the iconic smoking pose, capturing the essence of the legendary musician.",
             "price": 1900.0,
-            "image": "smoking.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114504/media/paintings/smoking_dvlehf.jpg",
             "sku": "SKU27"
         }
     },
@@ -303,7 +303,7 @@
             "title": "Growing Together",
             "description": "A heartwarming mural showcasing children's photos displayed in frames hanging from a tree, symbolizing growth, childhood, and the enduring nature of memories.",
             "price": 2200.0,
-            "image": "tree_kids.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114535/media/paintings/tree-kids_pznh6s.jpg",
             "sku": "SKU28"
         }
     },
@@ -314,7 +314,7 @@
             "title": "Doodle Delight",
             "description": "A playful and imaginative exploration of nature, featuring a tree adorned with a vibrant array of doodles, inviting the viewer to discover hidden details and let their imagination run wild.",
             "price": 1000.0,
-            "image": "tree.jpg",
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114573/media/paintings/tree_dwno5v.jpg",
             "sku": "SKU29"
         }
     },
@@ -325,7 +325,7 @@
             "title": "Queen of Nature",
             "description": "A stunning and empowering mural depicting a Black woman surrounded by a colorful bouquet of flowers and delicate butterflies, celebrating beauty, diversity, and harmony with nature.",
             "price": 4000.0,
-            "image": "woman.jpg"
+            "image": "https://res.cloudinary.com/dxm37gakc/image/upload/v1722114668/media/paintings/woman_ddnm9s.jpg"
             ,
             "sku": "SKU30"
         }
