@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Painting
 from django.core.paginator import Paginator
 from .forms import PaintingForm
@@ -27,8 +27,12 @@ def all_paintings(request):
 
 
 
-def painting_detail(request, pk):
-    painting = get_object_or_404(Painting, pk=pk)
+def painting_detail(request, painting_id):
+    """ View to display a single painting """
+    painting = get_object_or_404(Painting, pk=painting_id)
+    context = {
+        'painting': painting
+    }
     return render(request, 'paintings/painting_detail.html', {'painting': painting})
 
 @login_required
@@ -94,4 +98,4 @@ def delete_painting(request, painting_id):
     painting = get_object_or_404(Painting, pk=painting_id)
     painting.delete()
     messages.success(request, 'Painting deleted!')
-    return redirect(reverse('all'))
+    return redirect(reverse('all_paintings'))
