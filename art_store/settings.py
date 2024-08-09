@@ -32,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-wi9uqn!4w-&t7jukj0g$uk40klbk-d+%&6xfg!zrrx!ea=a#%%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
     '8000-kaltrinabm-artstore-s83hv3pe7s2.ws.codeinstitute-ide.net',
@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     #Other
     'crispy_forms',
     'crispy_bootstrap4',
+    
 ]
 
 MIDDLEWARE = [
@@ -158,10 +159,18 @@ WSGI_APPLICATION = 'art_store.wsgi.application'
 #     'default': dj_database_url.config(default='postgres://localhost')
 # }
 
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
-DATABASES = {
-     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
- }
 
 
 # Cloudinary configuration
