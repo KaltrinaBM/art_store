@@ -5,6 +5,8 @@ from home import views as home_views
 from django.conf import settings
 from django.conf.urls.static import static
 from bag import views 
+from .views import handler404
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -18,5 +20,6 @@ urlpatterns = [
     path('checkout/', include('checkout.urls')),
     path('profile/', include('profiles.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+handler404 = 'art_store.views.handler404'
 
 
