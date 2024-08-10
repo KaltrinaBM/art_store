@@ -69,7 +69,7 @@ def edit_painting(request, painting_id):
         return redirect(reverse('home'))
     painting = get_object_or_404(Painting, pk=painting_id)
     if request.method == 'POST':
-        form = PaintingtForm(request.POST, request.FILES, instance=painting)
+        form = PaintingForm(request.POST, request.FILES, instance=painting)
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated painting!')

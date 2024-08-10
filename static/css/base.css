@@ -336,13 +336,10 @@ a:hover {
     width: 100%;
 }
 
-.painting-footer p {
-    margin: 0;
 
-}
 
-.painting-footer .btn {
-    margin-top: 10px;
+.painting-footer {
+    padding: 10px;
 }
 
 /* Card image container styling */
@@ -350,6 +347,7 @@ a:hover {
     width: 100%;
     height: 300px;
     overflow: hidden;
+  
 }
 
 .card-img-top {
