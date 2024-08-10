@@ -1,18 +1,41 @@
-<!-- blog/templates/blog/blog_post_detail.html -->
+{% extends "base.html" %}
+{% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ post.title }}</title>
-</head>
-<body>
-    <h1>{{ post.title }}</h1>
-    <p>{{ post.author }} - {{ post.created_at }}</p>
-    {% if post.image %}
-    <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 400px;">
-    {% endif %}
-    <p>{{ post.content }}</p>
-</body>
-</html>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col   
+ muted">
+            <title>Blog Posts</title>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="blog-post-container">
+    <h1 class="blog-post-title">{{ post.title }}</h1>
+    <div class="blog-post-content">
+        {% if post.image %}
+        <div class="blog-image-container">
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="blog-image">
+            <span class="blog-post-author">{{ post.author }}</span> 
+            <span class="blog-post-date">{{ post.created_at|date:"F j, Y" }}</span>
+        </div>
+        {% endif %}
+        <div class="blog-text">
+            <p class="blog-post-meta">
+                <p>{{ post.content }}</p>
+
+            </p>
+           
+        </div>
+    </div>
+</div>
+
+{% endblock %}

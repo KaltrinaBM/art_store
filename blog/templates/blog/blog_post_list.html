@@ -1,25 +1,69 @@
-<!-- blog/templates/blog/blog_post_list.html -->
+{% extends "base.html" %}
+{% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Posts</title>
-</head>
-<body>
-    <h1>Blog Posts</h1>
-    <ul>
-        {% for post in posts %}
-        <li>
-            <a href="{% url 'blog_post_detail' post.id %}">{{ post.title }}</a>
-            <p>{{ post.author }} - {{ post.created_at }}</p>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col   
+ muted">
+            <title>Blog Posts</title>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header-content">
+        <h1 class="blog-list-title">Blog Posts</h1>
+        <form method="get" action="{% url 'blog_post_list' %}" class="search-form">
+            <input type="text" name="q" placeholder="Search..." value="{{ request.GET.q }}">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</div class="post-list">
+<ul class="blog-list">
+    {% for post in page_obj %}
+    <li class="blog-item">
+        <div class="blog-list-item-content">
             {% if post.image %}
-            <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 200px;">
+            <div class="blog-list-image-container">
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="blog-list-image">
+            </div>
             {% endif %}
-            <p>{{ post.content|truncatewords:30 }}</p>
-        </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+            <div class="blog-content">
+                <a href="{% url 'blog_post_detail' post.id %}">
+                    <h2>{{ post.title }}</h2>
+                </a>
+                <div class="post-meta">
+                    <span class="post-author">{{ post.author }}</span>
+                    <span class="post-date">{{ post.created_at|date:"F j, Y" }}</span>
+                </div>
+                <p>{{ post.excerpt|default:post.content|truncatewords:30 }}</p>
+                <p><strong>Category:</strong> {{ post.category.name }}</p>
+            </div>
+        </div>
+    </li>
+    {% empty %}
+    <p>No blog posts found.</p>
+    {% endfor %}
+</ul>
+</div>
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+        <a href="?page=1">&laquo; first</a>
+        <a href="?page={{ page_obj.previous_page_number   
+ }}">&lsaquo; previous</a>
+        {% endif %}
+        <span class="current-page">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">next &rsaquo;</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif%}
+    </div>
+</div>
+{% endblock %}

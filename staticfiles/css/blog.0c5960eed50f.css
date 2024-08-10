@@ -1,0 +1,95 @@
+/* Container Styles */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Content Styling */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.blog-list-title {
+    font-size: 2rem;
+    margin: 0;
+}
+
+/* Search Form Styling */
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-form input[type="text"] {
+    padding: 5px;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+.search-form button {
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Blog List Styling */
+.blog-list {
+    list-style: none;
+    padding: 0;
+}
+
+.blog-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.blog-item:last-child {
+    border-bottom: none;
+}
+
+.blog-image {
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.blog-content {
+    flex: 1;
+}
+
+.blog-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.blog-content p {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* Pagination Styling */
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.pagination a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.pagination .current-page {
+    margin: 0 10px;
+    font-weight: bold;
+}
