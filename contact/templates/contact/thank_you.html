@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Thank You - Art Store{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Thank You!</h1>
+    <p>Your message has been successfully sent. We will get back to you shortly.</p>
+</div>
+{% endblock %}
