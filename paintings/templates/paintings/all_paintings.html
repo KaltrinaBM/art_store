@@ -25,46 +25,48 @@
     <div class="row">
         {% for painting in page_obj %}
         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-4">
-            <div class="painting-container">
-                <img src="{{ painting.image.url }}" class="img-fluid"  alt="{{ painting.title }}">
-                <div class="painting-footer">
-                    <h5>{{ painting.title }}</h5>
-                    <p><strong>Price:</strong> ${{ painting.price }}</p>
-                    <a href="{% url 'painting_detail' painting.id %}" class="btn btn-primary">View Details</a>
-                    <form action="{% url 'add_to_bag' painting.id %}" method="POST" class="add-to-bag-form">
-                        {% csrf_token %}
-                        <input type="hidden" name="quantity" value="1">
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                        <button type="submit" class="btn btn-success mt-2">Add to Bag</button>
-                    </form>
+            <div class="painting-container border rounded p-3 bg-light">
+                <!-- Wrap the image with a link -->
+                <a href="{% url 'painting_detail' painting.id %}">
+                    <img src="{{ painting.image.url }}" class="img-fluid rounded mb-3" alt="{{ painting.title }}">
+                </a>
+                <div class="painting-footer mx-auto">
+                    <h5 class="mb-2">{{ painting.title }}</h5>
+                    <p class="mb-3">Price: ${{ painting.price }}</p>
+                    <div class="btn-group" role="group" aria-label="Painting actions">
+                        <form action="{% url 'add_to_bag' painting.id %}" method="POST" class="d-inline-block">
+                            {% csrf_token %}
+                            <input type="hidden" name="quantity" value="1">
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            <button type="submit" class="btn btn-success btn-sm">Add to Bag</button>
+                        </form>
+                    </div>
                     {% if request.user.is_superuser %}
-                    <small class="ml-3">
-                        <a href="{% url 'edit_painting' painting.id %}">Edit this painting</a> | 
-                        <a class="text-danger" href="{% url 'delete_painting' painting.id %}">Delete this Painting</a>
+                    <small class="d-block mt-2 text-muted">
+                        <a href="{% url 'edit_painting' painting.id %}">Edit</a> | 
+                        <a class="text-danger" href="{% url 'delete_painting' painting.id %}">Delete</a>
                     </small>
-                {% endif %}
+                    {% endif %}
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
+    
 
     <div class="pagination">
         {% if page_obj.has_previous %}
         <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
         {% endif %}
         <span class="current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
         </span>
         {% if page_obj.has_next %}
         <a href="?page={{ page_obj.next_page_number }}">Next</a>
         {% endif %}
     </div>
+    
 </div>
-
-<!-- Back to Top Button -->
-<button id="back-to-top" class="back-to-top">↑</button>
-
 
 
 <script>
@@ -109,7 +111,6 @@
                 });
         });
     });
-
 
 </script>
 

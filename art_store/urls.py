@@ -1,4 +1,3 @@
-# main urls.py (e.g., art_store/urls.py)
 from django.contrib import admin
 from django.urls import path, include
 from home import views as home_views
@@ -6,7 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from bag import views 
 from .views import handler404
-
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
