@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import BlogPost, Category, Tag
+from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -33,10 +34,12 @@ class TagAdmin(admin.ModelAdmin):
     merge_tags.short_description = "Merge selected tags"
 
 @admin.register(BlogPost)
-class BlogPostAdmin(admin.ModelAdmin):
+class BlogPostAdmin(SummernoteModelAdmin):
     list_display = ('title', 'author', 'category', 'created_at', 'updated_at')
     search_fields = ('title', 'content', 'author__username', 'category__name', 'tags__name')
     list_filter = ('created_at', 'updated_at', 'author', 'category', 'tags')
     ordering = ('-created_at',)
     fields = ('title', 'author', 'content', 'excerpt', 'image', 'category', 'tags')
     filter_horizontal = ('tags',)
+
+    summernote_fields = ('content', 'excerpt')
