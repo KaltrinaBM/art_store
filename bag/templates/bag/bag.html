@@ -35,34 +35,35 @@
 </div>
 
 <script>
-    $(document).ready(function () {
-        $('.quantity-input').on('change', function () {
-            var item_id = $(this).data('item-id');
-            var new_quantity = $(this).val();
-            var item_price = $(this).data('price');
-            var item_total = new_quantity * item_price;
-            $(this).closest('.painting-footer').find('.item-total').text(item_total.toFixed(2));
+  $(document).ready(function () {
+    $('.quantity-input').on('change', function () {
+        var item_id = $(this).data('item-id');
+        var new_quantity = $(this).val();
+        var item_price = $(this).data('price');
+        var item_total = new_quantity * item_price;
+        $(this).closest('.painting-footer').find('.item-total').text(item_total.toFixed(2));
 
-            var total_price = 0;
-            $('.quantity-input').each(function () {
-                var price = $(this).data('price');
-                var quantity = $(this).val();
-                total_price += price * quantity;
-            });
-            $('#total-price').text(total_price.toFixed(2));
+        var total_price = 0;
+        $('.quantity-input').each(function () {
+            var price = $(this).data('price');
+            var quantity = $(this).val();
+            total_price += price * quantity;
+        });
+        $('#total-price').text(total_price.toFixed(2));
 
-            $.ajax({
-                url: "{% url 'adjust_bag' 'ITEM_ID_PLACEHOLDER' %}".replace('ITEM_ID_PLACEHOLDER', item_id),
-                method: "POST",
-                data: {
-                    'quantity': new_quantity,
-                    'csrfmiddlewaretoken': '{{ csrf_token }}'
-                },
-                success: function (response) {
-                    console.log('Bag updated');
-                }
-            });
+        $.ajax({
+            url: "{% url 'adjust_bag' 'ITEM_ID_PLACEHOLDER' %}".replace('ITEM_ID_PLACEHOLDER', item_id),
+            method: "POST",
+            data: {
+                'quantity': new_quantity,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            success: function (response) {
+                updateBagIcon(); 
+            }
         });
     });
+});
+
 </script>
 {% endblock %}

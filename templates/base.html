@@ -16,7 +16,9 @@
     {% block corecss %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&family=Raleway:wght@400;700&family=Montserrat:wght@400;700&family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&family=Raleway:wght@400;700&family=Montserrat:wght@400;700&family=Abril+Fatface&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
@@ -26,9 +28,8 @@
     {% block corejs %}
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
 
 
     <!-- Stripe -->
@@ -40,12 +41,12 @@
     {% endblock %}
 
     <title>{% block title %}Art Store{% endblock %}</title>
- 
+
 
 
     {% block extra_head %}
-   <!-- Favicon -->
-   <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
 
     {% endblock %}
 
@@ -113,21 +114,21 @@
         </nav>
     </header>
     {% if messages %}
-    <div class="message-container">
-        {% for message in messages %}
-        {% with message.level as level %}
-        {% if level == 40 %}
-        {% include 'includes/toasts/toast_error.html' %}
-        {% elif level == 30 %}
-        {% include 'includes/toasts/toast_warning.html' %}
-        {% elif level == 25 %}
-        {% include 'includes/toasts/toast_success.html' %}
-        {% else %}
-        {% include 'includes/toasts/toast_info.html' %}
-        {% endif %}
-        {% endwith %}
-        {% endfor %}
-    </div>
+        <div class="message-container">
+            {% for message in messages %}
+                {% with message.level as level %}
+                    {% if level == 40 %}
+                        {% include 'includes/toasts/toast_error.html' %}
+                    {% elif level == 30 %}
+                        {% include 'includes/toasts/toast_warning.html' %}
+                    {% elif level == 25 %}
+                        {% include 'includes/toasts/toast_success.html' %}
+                    {% else %}
+                        {% include 'includes/toasts/toast_info.html' %}
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </div>
     {% endif %}
 
     <main role="main" class="container">
@@ -166,10 +167,52 @@
 
 
     {% block postloadjs %}
-    <script type="text/javascript">
-        $('.toast').toast('show');
-    </script>
-    {% endblock %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Function to show toasts
+        function showToasts() {
+            $('.toast').each(function () {
+                var toast = new bootstrap.Toast(this, {
+                    autohide: true, // Set to false if you want the toast to stay until manually dismissed
+                    delay: 5000 // Duration the toast should be visible (in milliseconds)
+                });
+                toast.show();
+            });
+        }
+
+        // Call showToasts() to display any toasts that were rendered server-side
+        showToasts();
+
+        // Example AJAX form submission with toast feedback
+        $('.add-to-bag-form').on('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const form = $(this);
+            const url = form.attr('action');
+            const data = form.serialize();
+
+            $.post(url, data, function (response) {
+                if (response.count !== undefined) {
+                    updateBagIcon();
+                }
+                if (response.message) {
+                    // Assuming response.message contains raw HTML for toasts
+                    $('#toast-container').append(response.message);
+                    showToasts();
+                }
+            });
+        });
+    });
+
+    function updateBagIcon() {
+        $.getJSON('{% url "update_icon_count" %}', function (data) {
+            $('#bag-icon-count').text(data.count);
+        });
+    }
+</script>
+{% endblock %}
+
+    
 </body>
 
 </html>

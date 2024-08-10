@@ -110,13 +110,7 @@
         });
     });
 
-    function updateBagIcon() {
-        fetch('/bag/update_icon_count/')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('bag-icon-count').innerText = data.count;
-            });
-    }
+
 </script>
 
 {% endblock %}
