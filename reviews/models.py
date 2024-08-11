@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from paintings.models import Painting
 from django.core.validators import MinValueValidator, MaxValueValidator
 
+
 class Review(models.Model):
     painting = models.ForeignKey(Painting, on_delete=models.CASCADE, related_name='reviews')
     user = models.ForeignKey(User, on_delete=models.CASCADE)

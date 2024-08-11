@@ -5,6 +5,7 @@ from .forms import PaintingForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
+
 def all_paintings(request):
     sort_by = request.GET.get('sort_by', 'title')  
     order = request.GET.get('order', 'asc') 
@@ -26,7 +27,6 @@ def all_paintings(request):
     return render(request, 'paintings/all_paintings.html', context)
 
 
-
 def painting_detail(request, painting_id):
     """ View to display a single painting """
     painting = get_object_or_404(Painting, pk=painting_id)
@@ -34,6 +34,7 @@ def painting_detail(request, painting_id):
         'painting': painting
     }
     return render(request, 'paintings/painting_detail.html', {'painting': painting})
+
 
 @login_required
 def add_painting(request):

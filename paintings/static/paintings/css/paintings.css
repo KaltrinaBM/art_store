@@ -38,7 +38,7 @@
 }
 
 .painting-description {
-  
+
     color: #343a40;
     margin-top: 20px;
 }
@@ -77,20 +77,21 @@
     color: #343a40;
 }
 
-.edit-link, .delete-link {
+.edit-link,
+.delete-link {
     font-size: 0.9em;
     color: #70121b;
     text-decoration: none;
 }
 
-.edit-link:hover, .delete-link:hover {
+.edit-link:hover,
+.delete-link:hover {
     text-decoration: underline;
 }
 
-.btn-add{
+.btn-add {
     color: #d0c3a5;
     background-color: #4a453a
-
 }
 
 .add-review-btn {
@@ -115,12 +116,14 @@
     color: #4a453a;
 }
 
-.edit-painting-link, .delete-painting-link {
+.edit-painting-link,
+.delete-painting-link {
     font-size: 0.9em;
     color: #70121b;
     text-decoration: none;
 }
 
-.edit-painting-link:hover, .delete-painting-link:hover {
+.edit-painting-link:hover,
+.delete-painting-link:hover {
     text-decoration: underline;
 }

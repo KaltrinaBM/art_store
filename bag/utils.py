@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404
 from paintings.models import Painting
 
+
 def get_bag_items(request):
     bag = request.session.get('bag', {})
     bag_items = []

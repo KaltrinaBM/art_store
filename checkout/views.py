@@ -13,6 +13,7 @@ import json
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
+
 @require_POST
 def cache_checkout_data(request):
     try:
@@ -27,6 +28,7 @@ def cache_checkout_data(request):
     except Exception as e:
         messages.error(request, 'Sorry, your payment cannot be processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
+
 
 def checkout(request):
     print('checkout view ********************')
@@ -114,6 +116,7 @@ def checkout(request):
 
     return render(request, template, context)
 
+
 def checkout_success(request, order_number):
     """
     Handle successful checkouts
@@ -152,3 +155,5 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
+
+    

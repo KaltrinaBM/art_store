@@ -8,7 +8,7 @@
 <div class="painting-detail-container">
 
     <h1 class="painting-title">{{ painting.title }}</h1>
-    
+
     <div class="painting-image-container">
         <img src="{{ painting.image.url }}" alt="{{ painting.title }}" class="painting-image">
     </div>
@@ -30,27 +30,28 @@
         <h2>Reviews</h2>
         <ul class="review-list">
             {% for review in painting.reviews.all %}
-                <li class="review-item">
-                    <strong>{{ review.user.username }}:</strong> {{ review.rating }} stars
-                    <p>{{ review.content }}</p>
-                    {% if review.user == user %}
-                        <a href="{% url 'edit_review' review.id %}" class="edit-link">Edit</a> |
-                        <a href="{% url 'delete_review' review.id %}" class="delete-link">Delete</a>
-                    {% endif %}
-                </li>
+            <li class="review-item">
+                <strong>{{ review.user.username }}:</strong> {{ review.rating }} stars
+                <p>{{ review.content }}</p>
+                {% if review.user == user %}
+                <a href="{% url 'edit_review' review.id %}" class="edit-link">Edit</a> |
+                <a href="{% url 'delete_review' review.id %}" class="delete-link">Delete</a>
+                {% endif %}
+            </li>
             {% empty %}
-                <li>No reviews yet.</li>
-                {% if request.user.is_superuser %}
-                <small class="mt-5">
-                    <a href="{% url 'edit_painting' painting.id %}" class="edit-painting-link">Edit this Painting</a> | 
-                    <a class="text-danger delete-painting-link" href="{% url 'delete_painting' painting.id %}">Delete this Painting</a>
-                </small>
+            <li>No reviews yet.</li>
+            {% if request.user.is_superuser %}
+            <small class="mt-5">
+                <a href="{% url 'edit_painting' painting.id %}" class="edit-painting-link">Edit this Painting</a> |
+                <a class="text-danger delete-painting-link" href="{% url 'delete_painting' painting.id %}">Delete this
+                    Painting</a>
+            </small>
             {% endif %}
             {% endfor %}
         </ul>
 
         {% if user.is_authenticated %}
-            <a href="{% url 'add_review' painting.id %}" class="btn btn-primary add-review-btn">Add Review</a>
+        <a href="{% url 'add_review' painting.id %}" class="btn btn-primary add-review-btn">Add Review</a>
         {% endif %}
     </div>
 

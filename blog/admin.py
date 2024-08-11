@@ -2,10 +2,12 @@ from django.contrib import admin
 from .models import BlogPost, Category, Tag
 from django_summernote.admin import SummernoteModelAdmin
 
+
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
+
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
@@ -14,7 +16,6 @@ class TagAdmin(admin.ModelAdmin):
     list_filter = ('name',)
 
     actions = ['merge_tags']  
-
 
     def delete_selected_tags(self, request, queryset):
         count = queryset.count()
@@ -32,6 +33,7 @@ class TagAdmin(admin.ModelAdmin):
                 tag.merge_into(primary_tag)
             self.message_user(request, f"Tags merged into {primary_tag.name}.")
     merge_tags.short_description = "Merge selected tags"
+
 
 @admin.register(BlogPost)
 class BlogPostAdmin(SummernoteModelAdmin):

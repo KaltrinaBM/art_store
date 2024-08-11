@@ -9,6 +9,7 @@ from django_countries.fields import CountryField
 from paintings.models import Painting
 from profiles.models import UserProfile
 
+
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
@@ -47,6 +48,7 @@ class Order(models.Model):
     def __str__(self):
         return f'Order {self.id} by {self.full_name}'
 
+
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='items')
     painting = models.ForeignKey(Painting, null=False, blank=False, on_delete=models.CASCADE)
@@ -62,3 +64,5 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f'SKU {self.painting.sku} x {self.order.order_number}'
+
+        

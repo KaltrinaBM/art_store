@@ -5,6 +5,7 @@ from django.db.models import Q
 from blog.models import BlogPost
 import random
 
+
 def home(request):
     query = request.GET.get('q', '')
     if query:
@@ -24,6 +25,7 @@ def home(request):
     }
     return render(request, 'home/index.html', context)
 
+
 def index(request):
     paintings = Painting.objects.order_by('?')[:3]
     context = {
@@ -41,14 +43,14 @@ def painting_list(request):
 
 
 def all_paintings(request):
-    sort_by = request.GET.get('sort_by', 'title')  # Default sort by title
-    order = request.GET.get('order', 'asc')  # Default order ascending
+    sort_by = request.GET.get('sort_by', 'title')  
+    order = request.GET.get('order', 'asc')  
 
     if order == 'desc':
         sort_by = f'-{sort_by}'
 
     paintings = Painting.objects.all().order_by(sort_by)
-    paginator = Paginator(paintings, 12)  # Show 12 paintings per page.
+    paginator = Paginator(paintings, 12)  
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     

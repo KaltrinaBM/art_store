@@ -24,16 +24,16 @@
         {% if post.image %}
         <div class="blog-image-container">
             <img src="{{ post.image.url }}" alt="{{ post.title }}" class="blog-image">
-            <span class="blog-post-author">{{ post.author }}</span> 
+            <span class="blog-post-author">{{ post.author }}</span>
             <span class="blog-post-date">{{ post.created_at|date:"F j, Y" }}</span>
         </div>
         {% endif %}
         <div class="blog-text">
             <p class="blog-post-meta">
-                <p>{{ post.content }}</p>
+            <p>{{ post.content }}</p>
 
             </p>
-           
+
         </div>
     </div>
 </div>

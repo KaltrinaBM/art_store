@@ -5,11 +5,13 @@ from django.http import JsonResponse
 from django.contrib.auth import authenticate, login
 from django.views.decorators.http import require_POST
 
+
 def update_icon_count(request):
     """ Update the count displayed on the bag icon """
     bag = request.session.get('bag', {})
     count = sum(bag.values())
     return JsonResponse({'count': count})
+
 
 def view_bag(request):
     bag = request.session.get('bag', {})
@@ -34,6 +36,7 @@ def view_bag(request):
     }
     return render(request, 'bag/bag.html', context)
 
+
 @require_POST
 def add_to_bag(request, item_id):
     painting = get_object_or_404(Painting, pk=item_id)
@@ -55,6 +58,7 @@ def add_to_bag(request, item_id):
 
     return redirect(redirect_url)
 
+
 def adjust_bag(request, item_id):
     painting = get_object_or_404(Painting, pk=item_id)
     quantity = int(request.POST.get('quantity'))
@@ -70,6 +74,7 @@ def adjust_bag(request, item_id):
     request.session['bag'] = bag
     return JsonResponse({'success': True})
 
+
 def remove_from_bag(request, item_id):
     painting = get_object_or_404(Painting, pk=item_id)
     bag = request.session.get('bag', {})
@@ -81,3 +86,4 @@ def remove_from_bag(request, item_id):
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
 
+    

@@ -6,6 +6,7 @@ from .models import Review
 from .forms import ReviewForm
 from paintings.models import Painting
 
+
 @login_required
 def add_review(request, painting_id):
     painting = get_object_or_404(Painting, pk=painting_id)
@@ -20,6 +21,7 @@ def add_review(request, painting_id):
     else:
         form = ReviewForm()
     return render(request, 'reviews/add_review.html', {'form': form, 'painting': painting})
+
 
 @login_required
 def edit_review(request, review_id):
@@ -38,6 +40,7 @@ def edit_review(request, review_id):
         form = ReviewForm(instance=review)
     
     return render(request, 'reviews/edit_review.html', {'form': form, 'review': review})
+
 
 @login_required
 def delete_review(request, review_id):

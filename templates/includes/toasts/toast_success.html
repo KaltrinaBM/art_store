@@ -15,36 +15,36 @@
             </div>
         </div>
         {% if grand_total and not on_profile_page %}
-            <p class="logo-font bg-white text-black py-1">Your Bag ({{ bag_count }})</p>
-            <div class="bag-notification-wrapper">
-                {% for item in bag_items %}
-                    <div class="row">
-                        <div class="col-3 my-1">
-                            {% if item.painting.image %}
-                            <img class="w-100" src="{{ item.painting.image.url }}" alt="{{ item.painting.title }}">
-                            {% else %}
-                            <img class="w-100" src="{{ MEDIA_URL }}placeholder.jpg" alt="{{ item.painting.title }}">
-                            {% endif %}
-                        </div>
-                        <div class="col-9">
-                            <p class="my-0"><strong>{{ item.painting.name }}</strong></p>
-                            
-                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
+        <p class="logo-font bg-white text-black py-1">Your Bag ({{ bag_count }})</p>
+        <div class="bag-notification-wrapper">
+            {% for item in bag_items %}
             <div class="row">
-                <div class="col">
+                <div class="col-3 my-1">
+                    {% if item.painting.image %}
+                    <img class="w-100" src="{{ item.painting.image.url }}" alt="{{ item.painting.title }}">
+                    {% else %}
+                    <img class="w-100" src="{{ MEDIA_URL }}placeholder.jpg" alt="{{ item.painting.title }}">
+                    {% endif %}
+                </div>
+                <div class="col-9">
+                    <p class="my-0"><strong>{{ item.painting.name }}</strong></p>
 
-                    <a href="{% url 'view_bag' %}" class="btn btn-black btn-block rounded-0">
-                        <span class="text-uppercase">Go To Secure Checkout</span>
-                        <span class="icon">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                    </a>
+                    <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                 </div>
             </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col">
+
+                <a href="{% url 'view_bag' %}" class="btn btn-black btn-block rounded-0">
+                    <span class="text-uppercase">Go To Secure Checkout</span>
+                    <span class="icon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
         {% endif %}
     </div>
 </div>

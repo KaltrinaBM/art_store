@@ -2,6 +2,7 @@ from decimal import Decimal
 from django.conf import settings
 from paintings.models import Painting
 
+
 class Bag:
     def __init__(self, request):
         self.session = request.session
