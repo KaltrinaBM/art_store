@@ -1,34 +1,58 @@
 {% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'paintings/css/paintings.css' %}">
+{% endblock %}
 
 {% block content %}
-<h1>{{ painting.title }}</h1>
-<img src="{{ painting.image.url }}" alt="{{ painting.title }}">
-<p><strong>Price:</strong> ${{ painting.price }}</p>
-<p><strong>Description:</strong> {{ painting.description }}</p>
+<div class="painting-detail-container">
 
-<h2>Reviews</h2>
-<ul>
-    {% for review in painting.reviews.all %}
-        <li>
-            <strong>{{ review.user.username }}:</strong> {{ review.rating }} stars
-            <p>{{ review.content }}</p>
-            {% if review.user == user %}
-                <a href="{% url 'edit_review' review.id %}">Edit</a> |
-                <a href="{% url 'delete_review' review.id %}">Delete</a>
+    <h1 class="painting-title">{{ painting.title }}</h1>
+    
+    <div class="painting-image-container">
+        <img src="{{ painting.image.url }}" alt="{{ painting.title }}" class="painting-image">
+    </div>
+
+    <div class="painting-info">
+        <p class="painting-price"><strong>Price:</strong> ${{ painting.price }}</p>
+        <div class="btn-group" role="group" aria-label="Painting actions">
+            <form action="{% url 'add_to_bag' painting.id %}" method="POST" class="d-inline-block">
+                {% csrf_token %}
+                <input type="hidden" name="quantity" value="1">
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                <button type="submit" class="btn-add btn-sm">Add to Bag</button>
+            </form>
+        </div>
+        <p class="painting-description"><strong>Description:</strong> {{ painting.description }}</p>
+    </div>
+
+    <div class="painting-reviews">
+        <h2>Reviews</h2>
+        <ul class="review-list">
+            {% for review in painting.reviews.all %}
+                <li class="review-item">
+                    <strong>{{ review.user.username }}:</strong> {{ review.rating }} stars
+                    <p>{{ review.content }}</p>
+                    {% if review.user == user %}
+                        <a href="{% url 'edit_review' review.id %}" class="edit-link">Edit</a> |
+                        <a href="{% url 'delete_review' review.id %}" class="delete-link">Delete</a>
+                    {% endif %}
+                </li>
+            {% empty %}
+                <li>No reviews yet.</li>
+                {% if request.user.is_superuser %}
+                <small class="mt-5">
+                    <a href="{% url 'edit_painting' painting.id %}" class="edit-painting-link">Edit this Painting</a> | 
+                    <a class="text-danger delete-painting-link" href="{% url 'delete_painting' painting.id %}">Delete this Painting</a>
+                </small>
             {% endif %}
-        </li>
-    {% empty %}
-        <li>No reviews yet.</li>
-        {% if request.user.is_superuser %}
-        <small class="ml-3">
-            <a href="{% url 'edit_painting' painting.id %}">Edit this Painting</a> | 
-            <a class="text-danger" href="{% url 'delete_painting' painting.id %}">Delete this Painting</a>
-        </small>
-    {% endif %}
-    {% endfor %}
-</ul>
+            {% endfor %}
+        </ul>
 
-{% if user.is_authenticated %}
-    <a href="{% url 'add_review' painting.id %}" class="btn btn-primary">Add Review</a>
-{% endif %}
+        {% if user.is_authenticated %}
+            <a href="{% url 'add_review' painting.id %}" class="btn btn-primary add-review-btn">Add Review</a>
+        {% endif %}
+    </div>
+
+</div>
 {% endblock %}

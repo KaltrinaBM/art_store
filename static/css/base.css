@@ -40,6 +40,12 @@ h5,
     cursor: pointer;
 }
 
+.btn-add{
+    color: #d0c3a5;
+    background-color: #4a453a
+
+}
+
 /* Hover effect */
 .btn:hover {
     background-color: #4a453a;
@@ -166,7 +172,10 @@ a:hover {
     background-color: #333;
 }
 
-/* css/base.css */
+.small-image {
+    max-width: 600px;
+    height: auto;
+}
 
 .dropdown {
     position: relative;
