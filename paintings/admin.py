@@ -9,4 +9,5 @@ class PaintingAdmin(admin.ModelAdmin):
 
     search_fields = ('title', 'description')
 
+
 admin.site.register(Painting, PaintingAdmin)

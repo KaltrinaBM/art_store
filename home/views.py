@@ -9,7 +9,11 @@ import random
 def home(request):
     query = request.GET.get('q', '')
     if query:
-        paintings = Painting.objects.filter(Q(title__icontains=query) | Q(description__icontains=query))
+        paintings = Painting.objects.filter(
+                                            Q(title__icontains=query) |
+                                            Q(description__icontains=query)
+                                            )
+
     else:
         all_paintings = list(Painting.objects.all())
         if len(all_paintings) > 3:
@@ -43,21 +47,21 @@ def painting_list(request):
 
 
 def all_paintings(request):
-    sort_by = request.GET.get('sort_by', 'title')  
-    order = request.GET.get('order', 'asc')  
+    sort_by = request.GET.get('sort_by', 'title')
+    order = request.GET.get('order', 'asc')
 
     if order == 'desc':
         sort_by = f'-{sort_by}'
 
     paintings = Painting.objects.all().order_by(sort_by)
-    paginator = Paginator(paintings, 12)  
+    paginator = Paginator(paintings, 12)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    
+
     context = {
         'page_obj': page_obj,
         'sort_by': sort_by,
         'order': order,
     }
-    
+
     return render(request, 'paintings/all_paintings.html', context)

@@ -7,7 +7,7 @@ from .forms import ReviewForm
 from paintings.models import Painting
 
 
-#View for Creating the reviews
+# View for Creating the reviews
 @login_required
 def add_review(request, painting_id):
     painting = get_object_or_404(Painting, pk=painting_id)
@@ -21,10 +21,11 @@ def add_review(request, painting_id):
             return redirect('painting_detail', painting_id=painting.id)
     else:
         form = ReviewForm()
-    return render(request, 'reviews/add_review.html', {'form': form, 'painting': painting})
+    return render(request, 'reviews/add_review.html', {'form': form,
+                  'painting': painting})
 
 
-#View for Updating the Reviews
+# View for Updating the Reviews
 @login_required
 def edit_review(request, review_id):
     review = get_object_or_404(Review, pk=review_id)
@@ -40,11 +41,11 @@ def edit_review(request, review_id):
             return redirect('painting_detail', painting_id=review.painting.id)
     else:
         form = ReviewForm(instance=review)
-    
-    return render(request, 'reviews/edit_review.html', {'form': form, 'review': review})
+    return render(request, 'reviews/edit_review.html', {'form': form,
+                  'review': review})
 
 
-#View for Deleting the Reviews
+# View for Deleting the Reviews
 @login_required
 def delete_review(request, review_id):
     review = get_object_or_404(Review, pk=review_id)

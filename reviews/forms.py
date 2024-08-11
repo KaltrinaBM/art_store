@@ -2,7 +2,7 @@ from django import forms
 from .models import Review
 
 
-#Form for Creating reviews
+# Form for Creating reviews
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review

@@ -7,23 +7,22 @@ from django.contrib import messages
 
 
 def all_paintings(request):
-    sort_by = request.GET.get('sort_by', 'title')  
-    order = request.GET.get('order', 'asc') 
+    sort_by = request.GET.get('sort_by', 'title')
+    order = request.GET.get('order', 'asc')
 
     if order == 'desc':
         sort_by = f'-{sort_by}'
 
     paintings = Painting.objects.all().order_by(sort_by)
-    paginator = Paginator(paintings, 12) 
+    paginator = Paginator(paintings, 12)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    
+
     context = {
         'page_obj': page_obj,
         'sort_by': sort_by,
         'order': order,
     }
-    
     return render(request, 'paintings/all_paintings.html', context)
 
 
@@ -33,7 +32,8 @@ def painting_detail(request, painting_id):
     context = {
         'painting': painting
     }
-    return render(request, 'paintings/painting_detail.html', {'painting': painting})
+    return render(request, 'paintings/painting_detail.html',
+                  {'painting': painting})
 
 
 @login_required
@@ -50,7 +50,8 @@ def add_painting(request):
             messages.success(request, 'Successfully added painting!')
             return redirect(reverse('painting_detail', args=[painting.id]))
         else:
-            messages.error(request, 'Failed to add painting. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add painting.'
+                           'Please ensure the form is valid.')
     else:
         form = PaintingForm()
 
@@ -76,7 +77,8 @@ def edit_painting(request, painting_id):
             messages.success(request, 'Successfully updated painting!')
             return redirect(reverse('painting_detail', args=[painting.id]))
         else:
-            messages.error(request, 'Failed to update painting. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update painting.'
+                           'Please ensure the form is valid.')
     else:
         form = PaintingForm(instance=painting)
         messages.info(request, f'You are editing { painting.title }')

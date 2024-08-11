@@ -1,8 +1,13 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import (
+    render,
+    redirect,
+    reverse,
+    HttpResponse,
+    get_object_or_404
+)
 from django.contrib import messages
 from paintings.models import Painting
 from django.http import JsonResponse
-from django.contrib.auth import authenticate, login
 from django.views.decorators.http import require_POST
 
 
@@ -46,15 +51,19 @@ def add_to_bag(request, item_id):
 
     if item_id in bag:
         bag[item_id] += quantity
-        messages.success(request, f'Updated {painting.title} quantity to {bag[item_id]}')
+        messages.success(
+            request,
+            f'Updated {painting.title} quantity to {bag[item_id]}'
+            )
+
     else:
         bag[item_id] = quantity
         messages.success(request, f'Added {painting.title} to your bag')
 
     request.session['bag'] = bag
-    
-    if request.headers.get('x-requested-with') == 'XMLHttpRequest':  # Check if the request is AJAX
-        return JsonResponse({'count': sum(bag.values())})  # Return updated count for the bag icon
+
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        return JsonResponse({'count': sum(bag.values())})
 
     return redirect(redirect_url)
 
@@ -66,7 +75,11 @@ def adjust_bag(request, item_id):
 
     if quantity > 0:
         bag[item_id] = quantity
-        messages.success(request, f'Updated {painting.title} quantity to {bag[item_id]}')
+        messages.success(
+            request,
+            f'Updated {painting.title} quantity to {bag[item_id]}'
+            )
+
     else:
         bag.pop(item_id)
         messages.success(request, f'Removed {painting.title} from your bag')
@@ -85,5 +98,3 @@ def remove_from_bag(request, item_id):
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
-
-    

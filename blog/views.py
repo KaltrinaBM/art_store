@@ -3,6 +3,7 @@ from .models import BlogPost
 from django.core.paginator import Paginator
 from django.db.models import Q
 
+
 # View of the Blog Posts list with search option, including pagination
 def blog_post_list(request):
     query = request.GET.get('q')
@@ -10,15 +11,15 @@ def blog_post_list(request):
 
     if query:
         posts = posts.filter(
-            Q(title__icontains=query) | 
+            Q(title__icontains=query) |
             Q(content__icontains=query) |
             Q(author__username__icontains=query)
         )
 
-    paginator = Paginator(posts, 5) 
+    paginator = Paginator(posts, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    
+
     return render(request, 'blog/blog_post_list.html', {'page_obj': page_obj})
 
 

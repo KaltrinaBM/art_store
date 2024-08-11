@@ -4,9 +4,10 @@ from paintings.models import Painting
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 
-#Model for review with rating
+# Model for review with rating
 class Review(models.Model):
-    painting = models.ForeignKey(Painting, on_delete=models.CASCADE, related_name='reviews')
+    painting = models.ForeignKey(Painting, on_delete=models.CASCADE,
+                                 related_name='reviews')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     rating = models.PositiveIntegerField(
         validators=[

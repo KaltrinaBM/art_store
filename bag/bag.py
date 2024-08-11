@@ -14,7 +14,11 @@ class Bag:
     def add(self, painting, quantity=1, override_quantity=False):
         painting_id = str(painting.id)
         if painting_id not in self.bag:
-            self.bag[painting_id] = {'quantity': 0, 'price': str(painting.price)}
+            self.bag[painting_id] = {
+                                     'quantity': 0,
+                                     'price': str(painting.price)
+                                      }
+
         if override_quantity:
             self.bag[painting_id]['quantity'] = quantity
         else:
@@ -45,7 +49,10 @@ class Bag:
         return sum(item['quantity'] for item in self.bag.values())
 
     def get_total_price(self):
-        return sum(Decimal(item['price']) * item['quantity'] for item in self.bag.values())
+        return sum(
+                   Decimal(item['price']) * item['quantity']
+                   for item in self.bag.values()
+        )
 
     def clear(self):
         del self.session[settings.BAG_SESSION_ID]

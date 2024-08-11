@@ -3,7 +3,7 @@ from django.contrib import messages
 from .forms import ContactForm
 
 
-#View of Contact Us form, site users to contact site owners
+# View of Contact Us form, site users to contact site owners
 def contact_view(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -13,7 +13,7 @@ def contact_view(request):
                 # If honeypot is filled, ignore submission
                 messages.error(request, 'Invalid submission.')
                 return redirect('contact')
-            
+
             form.save()
             return redirect('thank_you')
         else:
@@ -23,6 +23,7 @@ def contact_view(request):
 
     return render(request, 'contact/contact.html', {'form': form})
 
-#View of message after Contact Us message has been sent
+
+# View of message after Contact Us message has been sent
 def thank_you_view(request):
     return render(request, 'contact/thank_you.html')
