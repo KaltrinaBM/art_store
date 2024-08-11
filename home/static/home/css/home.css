@@ -1,0 +1,37 @@
+.btn:active {
+    background-color: #4a453a;
+    border-color: #292620 !important;
+
+}
+
+.btn:hover {
+    background-color: #4a453a;
+    border-color: #292620 !important;
+
+}
+
+.btn-primary:active,
+.btn-primary:focus:active,
+.btn-primary.focus:active {
+    background-color: #4a453a !important;
+    color: #d0c3a5;
+    border-color: #292620 !important;
+    transform: scale(0.98);
+    box-shadow: none !important;
+}
+
+.btn-primary:hover {
+    background-color: #4a453a;
+    color: #d0c3a5;
+    border-color: #292620 !important;
+    transform: scale(0.98);
+    box-shadow: none !important;
+}
+
+.blog-list:hover{
+    color: 4a453a;
+}
+
+a:hover{
+    color: #292620;
+}

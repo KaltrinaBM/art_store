@@ -1,0 +1,42 @@
+/*style for input Review form*/
+.form-review {
+    margin: 50px;
+}
+
+.form-review label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.painting-title {
+    font-weight: bold;
+    font-size: larger;
+}
+
+/*Style for Review buttons*/
+.btn {
+    margin-top: 50px;
+}
+
+.btn:active {
+    background-color: #4a453a;
+}
+
+.btn-primary:active,
+.btn-primary:focus:active,
+.btn-primary.focus:active {
+    background-color: #4a453a !important;
+    color: #d0c3a5;
+    border-color: #292620 !important;
+    transform: scale(0.98);
+    box-shadow: none !important;
+}
+
+.btn-primary:hover {
+    background-color: #4a453a;
+    color: #d0c3a5;
+    border-color: #292620 !important;
+    transform: scale(0.98);
+    box-shadow: none !important;
+}

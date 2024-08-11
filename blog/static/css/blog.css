@@ -1,3 +1,4 @@
+/* Container for the blog post content with padding, max-width,centering */
 .blog-post-container {
     padding: 20px;
     max-width: 800px;
@@ -32,6 +33,7 @@
     font-weight: bold;
 }
 
+/* Container for the blog post list content with padding, max-width, centering etc */
 .blog-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -121,4 +123,22 @@
 
 .pagination .current-page {
     margin: 0 10px;
+}
+
+.btn-primary:active,
+.btn-primary:focus:active,
+.btn-primary.focus:active {
+    background-color: #4a453a !important;
+    color: #d0c3a5;
+    border-color: #292620 !important;
+    transform: scale(0.98);
+    box-shadow: none !important;
+}
+
+.btn-primary:hover {
+    background-color: #4a453a;
+    color: #d0c3a5;
+    border-color: #292620 !important;
+    transform: scale(0.98);
+    box-shadow: none !important;
 }

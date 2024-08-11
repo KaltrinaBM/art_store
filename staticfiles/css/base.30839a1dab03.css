@@ -38,7 +38,7 @@ h5,
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
-    border-color: #4a453a;
+    border-color:#4a453a;
 }
 
 .btn-add {
@@ -50,7 +50,7 @@ h5,
 .btn:hover {
     background-color: #4a453a;
     color: #d0c3a5;
-    border-color: #4a453a;
+    border-color:#4a453a;
 
 }
 
@@ -58,23 +58,21 @@ h5,
 .btn-primary:hover {
     color: #d0c3a5;
     background-color: #4a453a;
-    border-color: #4a453a;
+    border-color:#4a453a;
 }
 
 a {
     text-decoration: none;
     color: inherit;
 }
-
 .btn:active,
-.btn-primary:active,
-.btn-primary:focus:active,
+.btn-primary:active, 
+.btn-primary:focus:active, 
 .btn-primary.focus:active {
-    background-color: #4a453a !important;
+    background-color: #4a453a !important; 
     color: #d0c3a5;
     border-color: #292620 !important;
 }
-
 a:hover {
     text-decoration: underline;
 }

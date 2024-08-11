@@ -12,19 +12,19 @@
 <div class="container mt-5">
     <h1>Contact Us</h1>
     <p>If you have any questions, please fill out the form below to contact our customer service.</p>
-    
+
     {% if messages %}
-        <div class="alert alert-info">
-            {% for message in messages %}
-                {{ message }}
-            {% endfor %}
-        </div>
+    <div class="alert alert-info">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    </div>
     {% endif %}
-    
+
     <form method="post" action="{% url 'contact' %}">
-        <h2 class="mb-5">Contact Us—We're All Ears!</h2> <!-- Heading for contact form -->
+        <h2 class="mb-5">Contact Us—We're All Ears!</h2>
         {{ form | crispy }}
         {% csrf_token %}
-        <button class="btn btn-secondary" type="submit">Send Message</button> <!-- Send button -->
+        <button class="btn btn-secondary" type="submit">Send Message</button>
 </div>
 {% endblock %}

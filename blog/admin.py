@@ -3,12 +3,14 @@ from .models import BlogPost, Category, Tag
 from django_summernote.admin import SummernoteModelAdmin
 
 
+# Admin configuration for the Category model
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
 
 
+# Admin configuration for the Tag model
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
     list_display = ('name',)
@@ -17,12 +19,14 @@ class TagAdmin(admin.ModelAdmin):
 
     actions = ['merge_tags']  
 
+  # Delete selected tags
     def delete_selected_tags(self, request, queryset):
         count = queryset.count()
         queryset.delete()
         self.message_user(request, f"Successfully deleted {count} tags.")
     delete_selected_tags.short_description = "Delete selected tags"
 
+  # Merges selected tags into the first selected tag
     def merge_tags(self, request, queryset):
         
         if queryset.count() > 1:
@@ -35,6 +39,7 @@ class TagAdmin(admin.ModelAdmin):
     merge_tags.short_description = "Merge selected tags"
 
 
+# Admin configuration for the BlogPost model with Summernote integration
 @admin.register(BlogPost)
 class BlogPostAdmin(SummernoteModelAdmin):
     list_display = ('title', 'author', 'category', 'created_at', 'updated_at')

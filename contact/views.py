@@ -3,6 +3,7 @@ from django.contrib import messages
 from .forms import ContactForm
 
 
+#View of Contact Us form, site users to contact site owners
 def contact_view(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -22,6 +23,6 @@ def contact_view(request):
 
     return render(request, 'contact/contact.html', {'form': form})
 
-
+#View of message after Contact Us message has been sent
 def thank_you_view(request):
     return render(request, 'contact/thank_you.html')
