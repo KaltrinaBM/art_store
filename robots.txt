@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /bag/
+Sitemap: https://art-store-bdbdae133a85.herokuapp.com/sitemap.xml
