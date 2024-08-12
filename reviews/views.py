@@ -27,6 +27,7 @@ def add_review(request, painting_id):
 
 # View for Updating the Reviews
 @login_required
+@login_required
 def edit_review(request, review_id):
     review = get_object_or_404(Review, pk=review_id)
     if request.user != review.user:
