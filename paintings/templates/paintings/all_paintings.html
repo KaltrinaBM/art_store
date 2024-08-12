@@ -14,7 +14,6 @@
         <label for="sort_by">Sort By:</label>
         <select id="sort_by" class="form-select" onchange="applySort()">
             <option value="" {% if not sort_by %}selected{% endif %}>Sort by...</option>
-            <option value="" {% if not sort_by %}selected{% endif %}>Sort by...</option>
             <option value="title_asc" {% if sort_by == 'title' and order == 'asc' %}selected{% endif %}>Title (A-Z)</option>
             <option value="title_desc" {% if sort_by == 'title' and order == 'desc' %}selected{% endif %}>Title (Z-A)</option>
             <option value="price_asc" {% if sort_by == 'price' and order == 'asc' %}selected{% endif %}>Price (Low to High)</option>
