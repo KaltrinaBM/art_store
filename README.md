@@ -71,26 +71,32 @@ The application uses Bootstrap for styling and Django's built-in authentication 
 - **AI Recommendations:** Implement algorithms to suggest artworks based on user behavior.
 - **Related Products:** Show related items on product pages to encourage exploration.
 
+## SEO Enhancements: Sitemap, Meta Tags, Social Media Integration, and More
+To improve the site's search engine optimization (SEO), I have integrated several important features, including a sitemap and robots.txt file to enhance search engine crawlability and indexing. Meta descriptions and keywords have been carefully crafted to optimize search visibility and relevance. A newsletter subscription option has been added to engage users and encourage return visits. Additionally, a genuine Instagram page has been linked to boost social media presence, though a Facebook page is currently represented by a mockup. These elements collectively support better search visibility, user engagement, and overall site performance.
 
-
-
-![Contact Us](/static/images/contactform.PNG)
+![Facebook Mockup](/media/facebook-mockup.png)
 
 ## Usage Instructions
+
 To use the Art Store web application, follow these steps:
 
-1. **Sign Up**: Create an account to add reviews, please orders, check order history, etc.
-2. **Sign In**: Log in to access additional features like reading blog posts and leaving reviews.
-5. **Place orders**: Place orders and secure payments. Registering is not required to place an order.
-3. **Reviews for each painting**: Signed-in users can add reviews.
-4. **Admin Panel**: Access the [admin panel](https://art-store-bdbdae133a85.herokuapp.com/admin/) with your superuser credentials to manage the site.
-5. **Blog with articles posted by admins**: Use the contact form to send messages to the team. A valid email is required, but signing in is not.
-6. **Contact Form**: Use the contact form to send messages to the team. A valid email is required, but signing in is not.
+1. **Sign Up**: Create an account to add reviews, place orders, and access order history.
+2. **Sign In**: Log in to access features such as reading blog posts and leaving reviews.
+3. **Manage Profile**: Update your profile details, recover your password, and view your order history.
+4. **Place Orders**: Place orders and make secure payments. Note that registration is not required to complete a purchase.
+5. **Reviews**: Registered users can add, update, and delete reviews for paintings. All site visitors can read reviews.
+6. **Admin Panel**: Access the [admin panel](https://art-store-bdbdae133a85.herokuapp.com/admin/) with your superuser credentials to manage the site.
+7. **Blog**: Read articles posted by admins.
+8. **Contact Form**: Send messages to the team via the contact form. A valid email is required, but signing in is not.
+9. **Newsletter**: Subscribe easily from the homepage.
+10. **Manage Products**: Site owners can add, update, and delete products effortlessly.
+
+![Product Reviews](/media/reviews.PNG)
+![Contact Us](/media/blog.PNG)
+![Contact Us](/media/contact-us.PNG)
 
 ## User Stories
 These user stories guided the development of this project:
-
- 
 
 - **Buy the product** - As a Registered User I can add the product to basked so I can make the order
 - **Searched list** - As a Registered User I can easy view the list of searched items so I can easy find the product I was looking for
@@ -218,7 +224,7 @@ During the validation process, a few small warnings were detected, but they were
 - **CI Python Linter**: Used to check the Python code for syntax errors and code style violations.
 - ***Results***:
 - No errors or style violations were found in the code.
-- The code was checked and returned with no issues detected.
+- The code was reviewed and identified as having minor issues with unused imports. However, after addressing these issues, the website began experiencing new problems.
 
 **Performance Testing with Lighthouse**
 
@@ -227,22 +233,9 @@ To ensure optimal performance, accessibility, and best practices, I tested the w
 - ***Results***
 Below are the results from the Lighthouse tests:
 
-![Lighthouse Homepage Test](/static/images/lighthouse.PNG)
+![Lighthouse Homepage Test](/media/lighthouse.PNG)
 
 These screenshots demonstrate the outcomes of the performance and accessibility evaluations, showcasing the measures taken to ensure the web application's quality and compliance.
-
-### Automated Testing
-
-Django provides built-in support for automated testing, allowing for unit tests and integration tests. Automated testing helps maintain code quality and quickly identify issues.
-
-While conducting integration tests, a bug was discovered in the 'Contact Us' form. The term 'Contact Us' was mentioned on the button leading to the form, but not within the actual form itself. This inconsistency could have caused confusion for users trying to understand the purpose of the form. The issue was identified during integration testing and was subsequently fixed by adding a clear title inside the form indicating that it was for 'Contact Us' inquiries.
-
-To run the automated tests, use the following command:
-```bash
-python manage.py test
-```
-
-![Automated Testing](/static/images/testing.PNG)
 
 ### Further Testing
 The Website was tested on Google Chrome and Internet Explorer.
@@ -252,15 +245,16 @@ Family members were asked to review and play the game to point out any bugs and/
 
 ### Known Bugs
 
-#### Footer Position Issue
-In certain situations, such as after submitting the contact form or when signing out, the footer may appear in the middle of the page instead of at the bottom.
-The cause is likely related to CSS or layout issues, possibly due to flexbox configurations or page content dynamics.
-This issue doesn't affect functionality but may disrupt the visual consistency of the page layout. Due to limited time, this issue will not be fixed. 
+#### True email sending issue
+True emails not going to customers after the user placed the order
+
+#### Forms, Buttons, and Image Size and Position
+The appearance of forms, buttons, and images may vary across different devices. While this does not affect the functionality, it impacts the visual consistency and overall aesthetics of the page layout. Due to time constraints, I was unable to refine the CSS styling to enhance the visual presentation.
 
 ## Deployment
 
 ### Heroku Deployment
-To deploy this Django project to Heroku from its [GitHub repository](https://github.com/KaltrinaBM/music-blog), the following steps were taken:
+To deploy this Django project to Heroku from its [GitHub repository](https://github.com/KaltrinaBM/art_store), the following steps were taken:
 
 1. **Create a Heroku Account**: Log into your Heroku account or create a new one at [Heroku](https://www.heroku.com/).
 2. **Create a New App**:
@@ -288,7 +282,11 @@ To deploy this Django project to Heroku from its [GitHub repository](https://git
 
 ## Credits
 
-- Portions of this project were adapted from a Code Institute walkthrough project. Due to time constraints and personal challenges, these resources offered a valuable foundation. However, this adaptation does not include the custom model for the contact form, which was developed independently.
+- Some parts of this project were adapted from a Code Institute walkthrough. Given the time constraints and personal challenges, these resources provided a crucial foundation. However, the adapted version does not include the following features, which were developed independently:
+
+Three custom models for managing product reviews: These models handle reviews for each painting submitted by registered users and include full CRUD (Create, Read, Update, Delete) functionality.
+A blog with posts by site owners: This feature allows site owners to create and manage blog content from the Admin side.
+A contact form: This form enables all site visitors to send contact messages.
 
 ### AI Assistance
 - **[ChatGPT](https://openai.com/blog/chatgpt/)**: Used for explanation and clarification of technical concepts, helping to understand Django structures and troubleshoot issues during project deployment.
@@ -302,5 +300,6 @@ To deploy this Django project to Heroku from its [GitHub repository](https://git
 - A free-licensed image was obtained from Google, ensuring compliance with licensing terms.
 
 ### Acknowledgements
-- Special thanks to Code Institute for their walkthrough project, which helped with certain parts of the project, excluding the custom contact form model.
-- I also appreciate the support from my family and my mentor [Iuliia Konovalova](https://github.com/IuliiaKonovalova) who helped me through the project.
+- Special thanks to Code Institute for their comprehensive walkthrough project, which provided valuable guidance and insights for various aspects of this project.Although some aspects have been adapted to meet the unique needs of this project and custom models have been created independently, the foundational knowledge and structure provided by Code Institute have been crucial in progressing this work.
+
+- I would also like to extend my gratitude to my family for their ongoing support and to my mentor, [Iuliia Konovalova](https://github.com/IuliiaKonovalova), for her invaluable guidance and assistance throughout the project. Her expertise and encouragement were greatly appreciated.
