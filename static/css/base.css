@@ -549,6 +549,61 @@ a:hover {
     border-radius: 0;
 }
 
+/* Footer General Styles */
+.footer {
+    padding: 40px 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.page-header h2 {
+    font-family: 'Playfair Display', serif;
+    color: #007bff;
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.block-divider--short {
+    width: 60px;
+    border: 2px solid #007bff;
+    margin: 0 auto;
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    color: #007bff;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #0056b3;
+}
+
+.footer-bottom {
+    border-top: 1px solid #e9ecef;
+    padding: 20px 0;
+    background-color: #f1f1f1;
+}
+
+.footer-bottom .text-muted {
+    color: #6c757d;
+}
+
+.footer-bottom a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #0056b3;
+}
+
 
 
 /* -------------------------------- Media Queries */

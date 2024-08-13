@@ -17,7 +17,7 @@
     <meta name="keywords"
         content="art, paintings, murals, original art, hand-crafted art, online art store, buy paintings, artist murals, wall art, contemporary art, modern art, home decor, office decor, art for sale, unique art pieces">
     <meta name="author" content="Art Store">
-{% endblock %}
+    {% endblock %}
 
     {% block corecss %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -55,7 +55,7 @@
     {% endblock %}
 
     <title>
-        Art store - {% block title %}{% endblock %}
+        Art Store - {% block title %}{% endblock %}
     </title>
 
     {% block extra_head %}
@@ -146,47 +146,53 @@
         {% endblock %}
     </main>
 
-    <!-- Footer -->
-    <footer class="container-wrapper mt-5">
-        <div class="container quotes-container content-container">
-            <section class="footer">
-                <div class="row">
-                    <div class="col-12 page-header mb-4">
-                        <h6 class="text-uppercase">Stay in touch:</h6>
-                        <hr class="block-divider block-divider--short">
-                    </div>
+ <!-- Footer -->
+<footer class="container-wrapper">
+    <div class="container quotes-container content-container">
+        <section class="footer">
+            <div class="row">
+                <div class="col-12 page-header mb-4">
+                    <h2>Stay in touch:</h2>
+                    <hr class="block-divider block-divider--short">
                 </div>
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <h5>Social</h5>
-                        <p>Keep up to date with all our latest offers</p>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 mb-4">
+                    <h3>Social</h3>
+                    <p>Keep up to date with all our latest offers:</p>
+                    <div class="social-links">
                         <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-facebook-square"></i> Follow us on Facebook!
-                        </a><br>
+                            <i class="fab fa-facebook-square"></i> Facebook
+                        </a>
                         <a href="https://www.instagram.com/artandcraftk/" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-instagram"></i> Follow us on Instagram!
+                            <i class="fab fa-instagram"></i> Instagram
                         </a>
                     </div>
-                    
                 </div>
-                <div class="footer mt-auto py-3 bg-light">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 text-md-left text-center">
-                                <a href="https://www.termsfeed.com/live/5989c13e-0f9b-4fa6-8514-afe6290cd700"
-                                    target="_blank">
-                                    Privacy Policy
-                                </a>
-                            </div>
-                            <div class="col-md-6 text-md-left">
-                                <span class="text-muted">© 2024 Art Store</span>
-                            </div>
+                <div class="col-12 col-md-6 mb-4">
+                    <h3>Contact Us</h3>
+                    <p>Email: <a href="mailto:info@artstore.com">artstore@example.com</a></p>
+                    <p>Phone: <a href="tel:+123456789">+123 456 789</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom mt-4">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 text-md-left text-center mb-3 mb-md-0">
+                            <a href="https://www.termsfeed.com/live/5989c13e-0f9b-4fa6-8514-afe6290cd700" target="_blank">
+                                Privacy Policy
+                            </a>
+                        </div>
+                        <div class="col-md-6 text-md-right text-center">
+                            <span class="text-muted">© 2024 Art Store</span>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
-    </footer>
+            </div>
+        </section>
+    </div>
+</footer>
+
 
 
     {% block postloadjs %}
