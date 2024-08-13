@@ -39,11 +39,11 @@ The application uses Bootstrap for styling and Django's built-in authentication 
 - **Responsive Design**: Adaptive layout and styling using Bootstrap for a seamless experience across all devices.
 - **Contact Form**: Submit inquiries and messages via a user-friendly contact form.
 
-![Product Reviews](/media/reviews.PNG)
+![Product Reviews](/media/reviews.png)
 
-![Contact Us](/media/blog.PNG)
+![Contact Us](/media/blog.png)
 
-![Contact Us](/media/contact-us.PNG)
+![Contact Us](/media/contact-us.png)
 
 
 
@@ -97,7 +97,7 @@ To improve the site's search engine optimization (SEO), I have integrated severa
 
 ![Facebook Mockup](/media/facebook-mockup.png)
 
-![Newsletter](/media/newsletter.PNG)
+![Newsletter](/media/newsletter.png)
 
 
 
@@ -259,7 +259,7 @@ To ensure optimal performance, accessibility, and best practices, I tested the w
 - ***Results***
 Below are the results from the Lighthouse tests:
 
-![Lighthouse Homepage Test](/media/lighthouse.PNG)
+![Lighthouse Homepage Test](/media/lighthouse.png)
 
 These screenshots demonstrate the outcomes of the performance and accessibility evaluations, showcasing the measures taken to ensure the web application's quality and compliance.
 

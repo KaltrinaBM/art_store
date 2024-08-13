@@ -28,10 +28,32 @@
     box-shadow: none !important;
 }
 
-.blog-list:hover{
+.blog-list:hover {
     color: #4a453a;
 }
 
-a:hover{
+a:hover {
     color: #292620;
+}
+
+/* Mailchimp Embed Form Styles */
+#mc_embed_signup {
+    background: #fff;
+    clear: left;
+    font: 14px Helvetica, Arial, sans-serif;
+    width: 600px;
+}
+
+.subscribe-btn {
+    height: 38px;
+    /* Shorter height */
+}
+
+.form-control {
+    height: 38px;
+    /* Match the button height */
+}
+
+#mc_embed_signup input {
+    margin-top: 0px;
 }

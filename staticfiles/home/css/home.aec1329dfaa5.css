@@ -41,11 +41,13 @@ a:hover{
     background: #fff;
     clear: left;
     font: 14px Helvetica, Arial, sans-serif;
-    width: 600px;
+    width: 400px;
 }
 
 .subscribe-btn {
     height: 38px; /* Shorter height */
+  
+    line-height: 1.5; /* Align text vertically */
 }
 
 .form-control {
