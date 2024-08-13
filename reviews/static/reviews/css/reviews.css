@@ -1,6 +1,10 @@
 /*style for input Review form*/
-.form-review {
+form.form-review {
     margin: 50px;
+}
+#id_content{
+    width: 300px;
+    height: auto;
 }
 
 .form-review label {
