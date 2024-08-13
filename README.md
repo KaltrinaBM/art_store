@@ -1,4 +1,5 @@
 # Art Store
+
 The Art Store is an online platform designed to sell high-quality, original paintings and provide mural services by talented artists. This document outlines the e-commerce business model for the Art Store, focusing on the B2C (Business-to-Consumer) segment. The application aims to connect individual art buyers and collectors with unique, hand-crafted art pieces and custom murals, enhancing both residential and commercial spaces.
 
 [**Live Version**](https://art-store-bdbdae133a85.herokuapp.com/)
@@ -10,8 +11,10 @@ The Art Store is an online platform designed to sell high-quality, original pain
 
 
 ## Table of Contents
+
 1. [Overview](#overview)
 2. [Features](#features)
+3. [Business Model](#business-model)
 3. [Usage Instructions](#usage-instructions)
 4. [User Stories](#user-stories)
 5. [Technologies Used](#technologies-used)
@@ -27,23 +30,41 @@ The Art Store Project is a Django-based web application where collectors and art
 The application uses Bootstrap for styling and Django's built-in authentication system for user management.
 
 ## Features
-- User authentication (sign up, sign in, sign out, recover password)
-- CRUD (create, read, update, delete) operations for reviews on each painting, service
-- Reading Blog posts posted by Site Owners
-- Responsive design using Bootstrap
-- Contact form for user inquiries
+
+- **User Authentication**: Secure sign-up, sign-in, sign-out, and password recovery functionalities.
+- **User Profile Management**: Update profile details, view order history, and manage account settings.
+- **Review Management**: Full CRUD (Create, Read, Update, Delete) operations for managing reviews on each painting.
+- **Product Management**: Add, update, and delete products easily from the admin panel.
+- **Blog Access**: View blog posts created and managed by site owners.
+- **Responsive Design**: Adaptive layout and styling using Bootstrap for a seamless experience across all devices.
+- **Contact Form**: Submit inquiries and messages via a user-friendly contact form.
+
+![Product Reviews](/media/reviews.PNG)
+
+![Contact Us](/media/blog.PNG)
+
+![Contact Us](/media/contact-us.PNG)
+
+
 
 ## Business Model
+
+Our e-commerce platform uses a direct-to-consumer model to offer a curated selection of artworks. We aim to provide a seamless shopping experience with secure transactions and an intuitive interface.
+
+### Marketing Strategies
+
+- **Digital Marketing:** Utilize social media platforms (Instagram, Pinterest, Facebook) for showcasing artwork and attracting customers.
+- **Search Engine Optimization (SEO)**: Optimize product listings and content to enhance search engine visibility and attract organic traffic.
+- **Email Marketing**: Use newsletters to keep subscribers informed about new arrivals, promotions, and updates.
+- **Content Marketing**: Create and share blog posts and articles to engage visitors and establish our authority in the art industry.
+- **Paid Advertising**: Implement targeted online ads to reach specific customer demographics and drive traffic to our site.
+- **Influencer Partnerships:** Collaborate with art influencers and bloggers to expand reach.
+
+These strategies are designed to boost our online presence, engage customers, and drive sales growth.
 
 ### Business Focus
 - **Model:** B2C (Business-to-Consumer)
 - **Purpose:** Provide a curated marketplace for purchasing expensive, original paintings and commissioning custom murals.
-
-### Marketing Strategies
-- **Digital Marketing:** Utilize social media platforms (Instagram, Pinterest, Facebook) for showcasing artwork and attracting customers. Implement SEO strategies for better visibility on search engines.
-- **Email Marketing:** Develop a newsletter to inform customers about new arrivals, exclusive offers, and artist features.
-- **Influencer Partnerships:** Collaborate with art influencers and bloggers to expand reach.
-- **Content Marketing:** Publish blogs on art trends, artist interviews, and design tips to position the store as an industry leader.
 
 ### Features
 - **Search and Filter:** Advanced search options to filter artworks by name and price.
@@ -76,6 +97,10 @@ To improve the site's search engine optimization (SEO), I have integrated severa
 
 ![Facebook Mockup](/media/facebook-mockup.png)
 
+![Newsletter](/media/newsletter.PNG)
+
+
+
 ## Usage Instructions
 
 To use the Art Store web application, follow these steps:
@@ -91,9 +116,7 @@ To use the Art Store web application, follow these steps:
 9. **Newsletter**: Subscribe easily from the homepage.
 10. **Manage Products**: Site owners can add, update, and delete products effortlessly.
 
-![Product Reviews](/media/reviews.PNG)
-![Contact Us](/media/blog.PNG)
-![Contact Us](/media/contact-us.PNG)
+
 
 ## User Stories
 These user stories guided the development of this project:
@@ -111,6 +134,7 @@ These user stories guided the development of this project:
 - **Blogn** - As a registered User, I want to be able to login
 - **Sign In** - As a registered User, I want to be able to login
 - **Register** - As a first time User, I want to open an account for more features
+
 
 
 ## Technologies Used
@@ -139,6 +163,7 @@ These user stories guided the development of this project:
 - **[PEP 8](https://peps.python.org/pep-0008/)**: The official style guide for Python, providing best practices for coding in Python.
 
 
+
 ## Design and Architecture
 
 ### Flowcharts
@@ -157,7 +182,7 @@ The following wireframe was created to display a visual guide of the website.
 
 The following tables represents the attributes of the models, including the database key and validation information:
 
-## Review Model Attributes
+***Review Model Attributes***
 
 | Attribute       | Type                     | Description                                          | Validation                         |
 |-----------------|--------------------------|------------------------------------------------------|------------------------------------|
@@ -170,7 +195,7 @@ The following tables represents the attributes of the models, including the data
 | `updated_at`    | DateTimeField(auto_now=True) | Timestamp indicating when the review was last updated. | Automatically updated.            |
 
 
-## BlogPost Model Attributes
+***BlogPost Model Attributes***
 
 | Attribute       | Type                     | Description                                          | Validation                         |
 |-----------------|--------------------------|------------------------------------------------------|------------------------------------|
@@ -185,7 +210,7 @@ The following tables represents the attributes of the models, including the data
 | `created_at`    | DateTimeField(auto_now_add=True) | Timestamp indicating when the blog post was created. | Automatically generated.           |
 | `updated_at`    | DateTimeField(auto_now=True) | Timestamp indicating when the blog post was last updated. | Automatically updated.            |
 
-## ContactMessage Model Attributes
+***ContactMessage Model Attributes***
 
 | Attribute       | Type                     | Description                                           | Validation                       |
 |-----------------|--------------------------|-------------------------------------------------------|----------------------------------|
@@ -213,11 +238,12 @@ During the validation process, a few small warnings were detected, but they were
             alt="Valid CSS!" />
     </a>
 </p>
-      
+
+- **W3C CSS Validation**: Each page's CSS was validated using the W3C CSS Validation Service to ensure adherence to CSS standards.
+- ***Results***: All stylesheets passed the validation with no errors detected, confirming that the CSS code is compliant with W3C standards and helps maintain a consistent visual appearance across different browsers.   
 
 - **W3C Markup Validation**: Each page was tested by entering its URL into the W3C Markup Validation Service. The validation service checks for syntax errors, structural issues, and other potential problems in the HTML markup.
 - ***Results***: All pages passed the validation with no errors detected, indicating that the HTML structure conforms to the W3C standards. This validation step helps ensure cross-browser compatibility and contributes to a consistent user experience.
-
 
 [CI Python Linter](https://pep8ci.herokuapp.com/) 
 
@@ -251,6 +277,8 @@ True emails not going to customers after the user placed the order
 #### Forms, Buttons, and Image Size and Position
 The appearance of forms, buttons, and images may vary across different devices. While this does not affect the functionality, it impacts the visual consistency and overall aesthetics of the page layout. Due to time constraints, I was unable to refine the CSS styling to enhance the visual presentation.
 
+
+
 ## Deployment
 
 ### Heroku Deployment
@@ -279,6 +307,8 @@ To deploy this Django project to Heroku from its [GitHub repository](https://git
 5. **Deploy the App**:
    - After deploying, you should see a success message saying, "The app was successfully deployed."
    - Click **Open App** to view your deployed site.
+
+
 
 ## Credits
 
