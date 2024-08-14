@@ -37,7 +37,6 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
-    print('checkout view ********************')
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -137,9 +136,8 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    messages.success(request, f'Order successfully processed!'
-                     'Your order number is {order_number}.'
-                     'A confirmation email will be sent to {order.email}.')
+    messages.success(request, f'Order successfully processed! Your order number is {order_number}. A confirmation email will be sent to {order.email}.')
+
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)

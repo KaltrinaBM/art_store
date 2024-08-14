@@ -39,6 +39,8 @@ The application uses Bootstrap for styling and Django's built-in authentication 
 - **Responsive Design**: Adaptive layout and styling using Bootstrap for a seamless experience across all devices.
 - **Contact Form**: Submit inquiries and messages via a user-friendly contact form.
 
+
+
 ![Product Reviews](/media/reviews.png)
 
 ![Contact Us](/media/blog.png)
@@ -226,6 +228,79 @@ The following tables represents the attributes of the models, including the data
 ## Testing
 
 ### Manual Testing
+
+Manual testing was conducted throughout the development of the site to ensure that each feature worked as expected before being merged into the master branch. Usability testing involved user acceptance testing (UAT), where new users tested the site on various devices and browsers to catch any issues and provide feedback. The table below summarizes the tests performed, the expected results, and the outcomes.
+
+### Sign Up
+
+| **User Actions**                                  | **Expected Results**                                                   | **Y/N** | **Comments** |
+|---------------------------------------------------|------------------------------------------------------------------------|---------|--------------|
+| Click on "Sign Up" button                         | User is redirected to the Sign Up page                                 | Y       |              |
+| Click on the "Login" link within the Sign Up form | User is redirected to the Login page                                   | Y       |              |
+| Enter a valid email twice                         | The field only accepts valid email addresses                           | Y       |              |
+| Enter mismatched passwords                        | The form shows an error message indicating passwords do not match      | Y       |              |
+| Complete the form with valid data and submit      | User account is created, and the user has to verify via email address  | Y |              |
+
+### Login
+
+| **User Actions**                                  | **Expected Results**                                                   | **Y/N** | **Comments** |
+|---------------------------------------------------|------------------------------------------------------------------------|---------|--------------|
+| Enter a valid email and password                  | User is logged in and redirected to their profile or homepage           | Y       |              |
+| Enter an invalid email or password                | An error message is displayed indicating invalid credentials            | Y       |              |
+| Click on "Forgot Password?"                       | User is redirected to the password recovery page                        | Y       |              |
+| Enter registered email in password recovery       | A password reset link is sent to the user's email                       | Y       |              |
+| Submit the form with valid credentials            | User is logged in successfully and redirected to the Home page       | Y       |              |
+
+### Place Order
+
+| **User Actions**                                  | **Expected Results**                                                   | **Y/N** | **Comments** |
+|---------------------------------------------------|------------------------------------------------------------------------|---------|--------------|
+| Add items to the cart                             | Items are added to the cart, and the cart count is updated              | Y       |              |
+| Click on "Checkout"                               | User is redirected to the checkout page                                 | Y       |              |
+| Enter valid payment details                       | Payment is processed, and the user receives an order confirmation       | Y       |              |
+| Enter invalid payment details                     | An error message is displayed indicating payment failure                | Y       |              |
+| Submit order                                      | The order is processed, and the user is redirected to the order summary page with order details | Y |              |
+
+### Contact Form
+
+| **User Actions**                                  | **Expected Results**                                                   | **Y/N** | **Comments** |
+|---------------------------------------------------|------------------------------------------------------------------------|---------|--------------|
+| Navigate to the Contact page                      | User is able to view the contact form                                   | Y       |              |
+| Fill out the form with valid data                 | The form is submitted successfully, and the user receives a confirmation message | Y |              |
+| Submit the form with missing required fields      | The form shows an error message indicating required fields              | Y       |              |
+
+
+
+### Reviews
+
+| **User Actions**                                  | **Expected Results**                                                   | **Y/N** | **Comments** |
+|---------------------------------------------------|------------------------------------------------------------------------|---------|--------------|
+| Navigate to a product page                        | The product page displays with an option to view or add reviews         | Y       |              |
+| Logged-in user clicks "Add Review"                | User is redirected to the review form page                              | Y       |              |                              | Y       |              |
+| Logged-in user submits a review with valid data   | Review is submitted successfully and displayed on the product page      | Y       |              |
+| Logged-in user submits an empty review form       | An error message is displayed indicating required fields are missing    | Y       |              |
+| Logged-in user edits their review                 | Review is updated successfully and changes are reflected on the product page | Y  |              |
+| Logged-in user deletes their review               | Review is removed from the product page                                 | Y       |              |
+| Logged-in user edits their review                 | Review is updated in the product page                                   | Y |  |
+| User views reviews on a product page              | All approved reviews are displayed, with the most recent reviews at the top | Y  |              |
+
+### Blog
+
+| **User Actions**                                   | **Expected Results**                                                   | **Y/N** | **Comments** |
+|----------------------------------------------------|------------------------------------------------------------------------|---------|--------------|
+| Navigate to the Blog page                          | The blog page loads with a list of published blog posts                 | Y       |              |
+| Click on a blog post hyperlinked         title     | User is redirected to the full blog post page                           | Y       |              |
+| View the blog post content                         | The blog post displays with the full content, images, author and date   | Y |  |
+| Attempt to find a post using the search function   | Search results display relevant blog posts matching the query           | Y       |              |
+| Admin creates a new blog post from the admin panel | The new post appears on the blog page and is accessible to all users    | Y       |              |
+| User navigates through multiple pages of blog posts | Pagination works correctly, allowing users to browse older posts        | Y       |              |
+| Admin updates a blog post                          | The updated post content is reflected immediately on the blog page      | Y       |              |
+| Admin deletes a blog post                          | The post is removed from the blog page and is no longer accessible      | Y       |              |
+
+
+Testing was performed on multiple devices and browsers to ensure that the review feature is fully functional and user-friendly. All identified issues were addressed and fixed during development.
+
+
 In addition to automated testing, I manually validated each page of the web application using the W3C Markup Validation Service to check for proper HTML structure, CI Python Linter and Flake8 to ensure compliance with coding standards.
 
 During the validation process, a few small warnings were detected, but they were promptly fixed to ensure compliance with web standards and code quality. These warnings were mostly minor issues that didn't affect functionality, but addressing them helps maintain a cleaner codebase and improves the user experience.
@@ -272,12 +347,14 @@ Family members were asked to review and play the game to point out any bugs and/
 ### Known Bugs
 
 #### True email sending issue
-True emails not going to customers after the user placed the order
+True emails are going to customers after the user placed the order. Due to limited time, I was not able to fix this bug.
 
 #### Forms, Buttons, and Image Size and Position
 The appearance of forms, buttons, and images may vary across different devices. While this does not affect the functionality, it impacts the visual consistency and overall aesthetics of the page layout. Due to time constraints, I was unable to refine the CSS styling to enhance the visual presentation.
 
-
+### Features to be Implemented
+Deleted Product Template: Create an HTML template that will display a message or a page when a product is removed from the website, ensuring a smooth user experience even when content is no longer available.
+CSS Refinement: Enhance and perfect the CSS styling across the entire website to improve visual consistency, responsiveness, and overall aesthetic appeal.
 
 ## Deployment
 
@@ -312,7 +389,7 @@ To deploy this Django project to Heroku from its [GitHub repository](https://git
 
 ## Credits
 
-- Some parts of this project were adapted from a Code Institute walkthrough. Given the time constraints and personal challenges, these resources provided a crucial foundation. However, the adapted version does not include the following features, which were developed independently:
+Some parts of this project were adapted from a Code Institute walkthrough. Given the time constraints and personal challenges, these resources provided a crucial foundation. However, the adapted version does not include the following features, which were developed independently:
 
 Three custom models for managing product reviews: These models handle reviews for each painting submitted by registered users and include full CRUD (Create, Read, Update, Delete) functionality.
 A blog with posts by site owners: This feature allows site owners to create and manage blog content from the Admin side.
