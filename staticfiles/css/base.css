@@ -558,7 +558,7 @@ a:hover {
 
 .page-header h2 {
     font-family: 'Playfair Display', serif;
-    color: #007bff;
+    color: #493813;
     font-size: 1.75rem;
     margin-bottom: 20px;
     text-align: center;
@@ -566,7 +566,7 @@ a:hover {
 
 .block-divider--short {
     width: 60px;
-    border: 2px solid #007bff;
+    border: 2px solid #4a453a;
     margin: 0 auto;
 }
 
@@ -574,14 +574,15 @@ a:hover {
     display: inline-block;
     margin-right: 15px;
     margin-bottom: 10px;
-    color: #007bff;
+    color: #493813;
     font-size: 1.1rem;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-    color: #0056b3;
+    color: #7a5d1d;
+    font-weight: bolder;
 }
 
 .footer-bottom {
@@ -595,13 +596,14 @@ a:hover {
 }
 
 .footer-bottom a {
-    color: #007bff;
+    color: #4a453a;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-bottom a:hover {
-    color: #0056b3;
+    color: #7a5d1d;
+    font-weight: bolder;
 }
 
 
@@ -656,7 +658,7 @@ a:hover {
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
-    .header-container {
+    .header-container {1
         padding-top: 116px;
     }
 

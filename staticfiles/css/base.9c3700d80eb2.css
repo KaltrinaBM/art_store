@@ -581,8 +581,7 @@ a:hover {
 }
 
 .social-links a:hover {
-    color: #7a5d1d;
-    font-weight: bolder;
+    color: #4a453a;
 }
 
 .footer-bottom {
@@ -602,8 +601,7 @@ a:hover {
 }
 
 .footer-bottom a:hover {
-    color: #7a5d1d;
-    font-weight: bolder;
+    color: #493813;
 }
 
 
@@ -658,7 +656,7 @@ a:hover {
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
-    .header-container {1
+    .header-container {
         padding-top: 116px;
     }
 
