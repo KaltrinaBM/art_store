@@ -34,11 +34,12 @@ SECRET_KEY = (
 
 # SECURITY WARNING:
 # don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-kaltrinabm-artstore-s83hv3pe7s2.ws.codeinstitute-ide.net',
     '8000-kaltrinabm-artstore-9cy9s60k446.ws.codeinstitute-ide.net',
+    '8000-kaltrinabm-artstore-mcx6krpjmwy.ws.codeinstitute-ide.net',
     'art-store-bdbdae133a85.herokuapp.com',
     'localhost',
     ]
@@ -118,7 +119,8 @@ TEMPLATES = [
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-kaltrinabm-artstore-s83hv3pe7s2.ws.codeinstitute-ide.net',
     'https://kaltrinabm-artstore-9cy9s60k446.ws.codeinstitute-ide.net',
-    'https://8000-kaltrinabm-artstore-9cy9s60k446.ws.codeinstitute-ide.net'
+    'https://8000-kaltrinabm-artstore-9cy9s60k446.ws.codeinstitute-ide.net',
+    'https://8000-kaltrinabm-artstore-mcx6krpjmwy.ws.codeinstitute-ide.net',
 ]
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
@@ -145,7 +147,7 @@ WSGI_APPLICATION = 'art_store.wsgi.application'
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
     }
 else:
     DATABASES = {
@@ -229,9 +231,9 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 # STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 # STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 
-STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
-STRIPE_PUBLIC_KEY = config('STRIPE_PUBLIC_KEY')
-STRIPE_CURRENCY = config('STRIPE_CURRENCY', default='usd')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY')
+STRIPE_CURRENCY = os.getenv('STRIPE_CURRENCY', default='usd')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
 if 'DEVELOPMENT' in os.environ:
@@ -242,6 +244,6 @@ else:
     EMAIL_USE_TLS = True
     EMAIL_PORT = 587
     EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
-    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASS')
+    DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')
