@@ -9,7 +9,7 @@ from profiles.models import UserProfile
 
 import json
 import time
-
+import stripe
 
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
@@ -50,10 +50,21 @@ class StripeWH_Handler:
         pid = intent.id
         bag = intent.metadata.bag
         save_info = intent.metadata.save_info
+        print(intent)
 
-        billing_details = intent.charges.data[0].billing_details
+        # Get the Charge object
+        stripe_charge = stripe.Charge.retrieve(
+        intent.latest_charge
+        )
+
+        billing_details = stripe_charge.billing_details # updated
         shipping_details = intent.shipping
-        total_price = round(intent.charges.data[0].amount / 100, 2)
+        total_price = round(stripe_charge.amount / 100, 2) # updated
+
+        print("Billing: ", billing_details)
+        print("shipping: ", shipping_details)
+        print("bag: ", bag)
+        print("price: ", total_price)
 
         # Clean data in the shipping details
         for field, value in shipping_details.address.items():
@@ -80,19 +91,19 @@ class StripeWH_Handler:
         while attempt <= 5:
             try:
                 order = Order.objects.get(
-                                         full_name__iexact=shipping_details.name,
-                                         email__iexact=billing_details.email,
-                                         phone_number__iexact=shipping_details.phone,
-                                         country__iexact=shipping_details.address.country,
-                                         postcode__iexact=shipping_details.address.postal_code,
-                                         town_or_city__iexact=shipping_details.address.city,
-                                         street_address1__iexact=shipping_details.address.line1,
-                                         street_address2__iexact=shipping_details.address.line2,
-                                         county__iexact=shipping_details.address.state,
-                                         grand_total=total_price,
-                                         original_bag=bag,
-                                         stripe_pid=pid,
-                                         )
+                    full_name__iexact=shipping_details.name,
+                    email__iexact=billing_details.email,
+                    phone_number__iexact=shipping_details.phone,
+                    # country__iexact=shipping_details.address.country,
+                    postcode__iexact=shipping_details.address.postal_code,
+                    town_or_city__iexact=shipping_details.address.city,
+                    street_address1__iexact=shipping_details.address.line1,
+                    street_address2__iexact=shipping_details.address.line2,
+                    # county__iexact=shipping_details.address.state,
+                    # grand_total=total_price,
+                    original_bag=bag,
+                    stripe_pid=pid,
+                )
 
                 order_exists = True
                 break
@@ -105,6 +116,7 @@ class StripeWH_Handler:
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
                 status=200)
         else:
+            print("Order doesn't exist")
             order = None
             try:
                 order = Order.objects.create(
