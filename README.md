@@ -37,7 +37,7 @@ The application uses Bootstrap for styling and Django's built-in authentication 
 - **Product Management**: Add, update, and delete products easily from the admin panel.
 - **Blog Access**: View blog posts created and managed by site owners.
 - **Responsive Design**: Adaptive layout and styling using Bootstrap for a seamless experience across all devices.
-- **Contact Form**: Submit inquiries and messages via a user-friendly contact form.
+- **Contact Us Form**: Submit inquiries and messages via a user-friendly contact form.
 
 
 
