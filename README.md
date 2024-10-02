@@ -358,6 +358,8 @@ CSS Refinement: Enhance and perfect the CSS styling across the entire website to
 
 ## Deployment
 
+During the development process, some sensitive information was accidentally committed to the repository. To resolve this, the project has been updated to ensure that all sensitive details are now securely managed using environment variables. Moving forward, all commits and deployments will follow best practices, keeping sensitive information stored in external files (e.g., env.py or environment variables) and ensuring it is not included in the repository.
+
 ### Heroku Deployment
 To deploy this Django project to Heroku from its [GitHub repository](https://github.com/KaltrinaBM/art_store), the following steps were taken:
 
