@@ -339,18 +339,34 @@ Below are the results from the Lighthouse tests:
 These screenshots demonstrate the outcomes of the performance and accessibility evaluations, showcasing the measures taken to ensure the web application's quality and compliance.
 
 ### Further Testing
-The Website was tested on Google Chrome and Internet Explorer.
-The website was viewed on a variety of devices such as Desktop, Laptop, Andorid phones.
-A large amount of testing was done to ensure that all functions are working as intended.
-Family members were asked to review and play the game to point out any bugs and/or user experience issues.
 
-### Known Bugs
+#### Browser and Device Testing
+The website was thoroughly tested across multiple web browsers, including Google Chrome and Microsoft Edge, to ensure full compatibility and functionality. Additionally, it was tested on various devices such as desktop computers, laptops, and Android smartphones, to verify responsiveness and performance across different screen sizes and resolutions.
 
-#### True email sending issue
-True emails are going to customers after the user placed the order. Due to limited time, I was not able to fix this bug.
+#### Functionality Testing
+Extensive testing was carried out on all major features of the website, with a focus on ensuring that the purchasing process—from product selection to order completion—works seamlessly. This includes testing the following:
 
-#### Forms, Buttons, and Image Size and Position
+User authentication: Registration, login, and password reset functions.
+Shopping cart: Adding, updating, and removing items from the cart.
+Checkout process: Verifying payment gateway integration (Stripe), shipping details, and order confirmation.
+Order management: Ensuring orders are properly recorded in the database and can be viewed by both the customer and admin.
+Cross-Device Usability Testing
+
+To gain further insights into user experience and uncover potential issues, family members were invited to review the website and perform test purchases. Their feedback helped identify and resolve any usability challenges, as well as fine-tune the purchasing workflow. Specific attention was paid to:
+
+User interface intuitiveness: Ensuring that the navigation and purchasing process are easy to follow for all users.
+Bug identification: Family members were encouraged to report any bugs or issues encountered during their testing sessions.
+
+### Bugs
+
+#### Known Bugs: Forms, Buttons, and Image Size and Position
 The appearance of forms, buttons, and images may vary across different devices. While this does not affect the functionality, it impacts the visual consistency and overall aesthetics of the page layout. Due to time constraints, I was unable to refine the CSS styling to enhance the visual presentation.
+
+#### Bug Fixed: Email Notification Issue
+The issue preventing confirmation emails from being sent to customers after placing an order has been resolved. Customers will now receive timely email notifications regarding their placed order.
+
+#### Bug Fixed: Sensitive Information Exposure
+The issue of sensitive information being exposed during commits has been fixed. Appropriate measures have been taken to ensure that sensitive data is no longer included, enhancing the security of the application.
 
 ### Features to be Implemented
 Deleted Product Template: Create an HTML template that will display a message or a page when a product is removed from the website, ensuring a smooth user experience even when content is no longer available.
@@ -411,4 +427,4 @@ A contact form: This form enables all site visitors to send contact messages.
 ### Acknowledgements
 - Special thanks to Code Institute for their comprehensive walkthrough project, which provided valuable guidance and insights for various aspects of this project.Although some aspects have been adapted to meet the unique needs of this project and custom models have been created independently, the foundational knowledge and structure provided by Code Institute have been crucial in progressing this work.
 
-- I would also like to extend my gratitude to my family for their ongoing support and to my mentor, [Iuliia Konovalova](https://github.com/IuliiaKonovalova), for her invaluable guidance and assistance throughout the project. Her expertise and encouragement were greatly appreciated.
+- I would also like to extend my gratitude to my family for their ongoing support, to my mentor, Iuliia Konovalova, for her invaluable guidance and assistance throughout the project, and to the tutors at Code Institute for their support. Their expertise and encouragement were greatly appreciated.
